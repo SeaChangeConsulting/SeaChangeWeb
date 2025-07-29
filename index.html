@@ -86,6 +86,26 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Styles for the dial graphs */
+        .dial-chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 180px; /* Adjust size for small dials */
+            height: 90px; /* Half of width for half-circle */
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden; /* Hide the bottom half of the doughnut */
+        }
+        .dial-value-text {
+            position: absolute;
+            top: 65%; /* Adjust to center in the visible half */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #212529;
+            z-index: 10;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -206,156 +226,19 @@
             </div>
         </section>
 
-        <section id="demo" class="py-16 md:py-24">
+        <section id="impact" class="py-16 md:py-24">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:text-center">
-                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">See It In Action</h2>
-                    <p class="mt-2 section-title text-gray-900">Your Intelligent Growth Engine</p>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">This isn't just theory. Explore our interactive framework to see how we turn strategy into clarity and action.</p>
+                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">The Impact</h2>
+                    <p class="mt-2 section-title text-gray-900">Quantifiable Outcomes</p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Visualizing the transformation from chaos to clarity with key strategic alignment indicators.</p>
                 </div>
-
-                <div class="mt-12 max-w-4xl mx-auto">
-                    <div class="mb-4 border-b border-gray-200">
-                        <div class="flex flex-wrap -mb-px" aria-label="Tabs">
-                            <button class="tab-btn active w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab1">AI Strategy Architect</button>
-                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab2">Strategy Mindmap</button>
-                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab3">Task Manager</button>
-                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab4">Capability View</button>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-xl p-4 md:p-8 min-h-[400px]">
-                        <div id="tab1" class="tab-content">
-                            <h3 class="text-lg font-bold mb-2">Benefit: AI-Guided Strategy Breakdown</h3>
-                            <p class="text-gray-600 mb-4">Break down ambitious goals into actionable operational blueprints, guided by AI. Get a head start on identifying core capabilities needed.</p>
-                            <div id="chat-container" class="bg-gray-50 p-4 rounded-lg h-96 overflow-y-auto space-y-4">
-                                <!-- Chat messages will be injected here -->
-                            </div>
-                        </div>
-                        <div id="tab2" class="tab-content hidden">
-                            <h3 class="text-lg font-bold mb-2">Benefit: Visualizing Strategy-to-Execution Flow</h3>
-                            <p class="text-gray-600 mb-4">See a real-time, interactive map of how your strategic objectives link directly to the People, Processes, and Technology required to achieve them.</p>
-                            <div class="mindmap-container overflow-x-auto">
-                                <div class="mindmap-node mindmap-root" style="border-color: #3b82f6;">Target: Sellable business worth RXbn by 2030</div>
-                                <div class="mindmap-children">
-                                    <div class="mindmap-node" style="border-color: #a7f3d0;">Enterprise Sales & Account Management</div>
-                                    <div class="mindmap-children">
-                                         <div class="mindmap-node" style="border-color: #6ee7b7;">People
-                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
-                                                <li>Enterprise account executives</li>
-                                                <li>Solution consultants / pre-sales engineers</li>
-                                                <li>Customer success managers</li>
-                                            </ul>
-                                         </div>
-                                         <div class="mindmap-node" style="border-color: #34d399;">Processes
-                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
-                                                <li>Strategic account planning</li>
-                                                <li>Enterprise sales lifecycle (prospecting to close)</li>
-                                                <li>Client onboarding & relationship management</li>
-                                            </ul>
-                                         </div>
-                                         <div class="mindmap-node" style="border-color: #10b981;">Technology
-                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
-                                                <li>CRM (e.g., Salesforce, HubSpot, Zoho)</li>
-                                                <li>Proposal automation tools</li>
-                                                <li>Sales enablement platforms (e.g., Highspot)</li>
-                                            </ul>
-                                         </div>
-                                    </div>
-                                    <div class="mindmap-node" style="border-color: #a7f3d0;">Scalable Delivery Operations</div>
-                                    <div class="mindmap-children">
-                                         <div class="mindmap-node" style="border-color: #6ee7b7;">People
-                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
-                                                <li>Project and program managers</li>
-                                                <li>Technical delivery leads and solution architects</li>
-                                                <li>QA and service delivery coordinators</li>
-                                            </ul>
-                                         </div>
-                                         <div class="mindmap-node" style="border-color: #34d399;">Processes
-                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
-                                                <li>Project and resource planning</li>
-                                                <li>Delivery playbooks and SOPs</li>
-                                                <li>Risk and quality management</li>
-                                            </ul>
-                                         </div>
-                                         <div class="mindmap-node" style="border-color: #10b981;">Technology
-                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
-                                                <li>Project management tools (e.g., Jira, Asana, MS Project)</li>
-                                                <li>Time tracking and resource allocation tools</li>
-                                            </ul>
-                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tab3" class="tab-content hidden">
-                             <h3 class="text-lg font-bold mb-2">Benefit: Operational Task Management</h3>
-                             <p class="text-gray-600 mb-4">Turn strategic plans into trackable operational tasks. Ensure accountability and monitor progress across teams, roles, and capabilities.</p>
-                             <div class="border rounded-lg p-4">
-                                <h4 class="text-xl font-bold text-center mb-2">Operational Task Manager</h4>
-                                <p class="text-center text-gray-500 mb-4">Track and manage the actions required to operationalize your business goal.</p>
-                                <div class="mb-4">
-                                    <label class="font-semibold">Project Completion</label>
-                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 12%"></div>
-                                    </div>
-                                </div>
-                                <div class="grid md:grid-cols-4 gap-4 mb-4">
-                                    <select class="w-full p-2 border rounded-md"><option>All Statuses</option></select>
-                                    <select class="w-full p-2 border rounded-md"><option>Marketing & User Acquisition</option></select>
-                                    <select class="w-full p-2 border rounded-md"><option>All Job Roles</option></select>
-                                    <button class="w-full bg-blue-600 text-white p-2 rounded-md font-bold">Add New Task</button>
-                                </div>
-                                <div class="space-y-4">
-                                    <div class="bg-gray-50 p-4 rounded-lg border">
-                                        <div class="flex justify-between items-start">
-                                            <div>
-                                                <h5 class="font-bold">Contract freelancer / Hire Graphic Designer</h5>
-                                                <p class="text-sm text-gray-500">Capability: Marketing & User Acquisition</p>
-                                            </div>
-                                            <span class="text-xs font-medium bg-red-100 text-red-800 px-2 py-1 rounded-full">Not Started</span>
-                                        </div>
-                                    </div>
-                                    <div class="bg-gray-50 p-4 rounded-lg border">
-                                        <div class="flex justify-between items-start">
-                                            <div>
-                                                <h5 class="font-bold">Hire Market Researcher / Assign to Product Manager</h5>
-                                                <p class="text-sm text-gray-500">Capability: Marketing & Research & Strategy</p>
-                                            </div>
-                                            <span class="text-xs font-medium bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">In Progress</span>
-                                        </div>
-                                    </div>
-                                </div>
-                             </div>
-                        </div>
-                        <div id="tab4" class="tab-content hidden">
-                            <h3 class="text-lg font-bold mb-2">Benefit: Your Business Capabilities at a Glance</h3>
-                            <p class="text-gray-600 mb-4">Gain clarity on who does what and how, mitigating key-person reliance and ensuring every part of your organization contributes to your strategic goals.</p>
-                            <div class="border rounded-lg p-4 h-96 overflow-y-auto">
-                                <h4 class="text-lg font-bold mb-2">Business Capabilities</h4>
-                                <ul class="space-y-1">
-                                    <li>▶ Strategic Capabilities</li>
-                                    <li>▶ Core Capabilities</li>
-                                    <li class="pl-4">▼ Supporting Capabilities
-                                        <ul class="pl-4 space-y-1 mt-1">
-                                            <li class="pl-4">▼ Finance
-                                                <ul class="pl-4 space-y-1 mt-1 text-gray-600">
-                                                    <li>• Financial Strategy and Budgeting</li>
-                                                    <li>• Management Accounting</li>
-                                                    <li>• Accounts Receivable and Credit Management</li>
-                                                </ul>
-                                            </li>
-                                            <li class="pl-4">▶ Payroll</li>
-                                            <li class="pl-4">▶ Tax Management</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div id="dials-grid" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Dial graphs will be dynamically inserted here by JavaScript -->
                 </div>
             </div>
         </section>
-
+        
         <section id="why-us" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -483,8 +366,69 @@
                     delay += 1200; 
                 });
             }
-            
-            simulateChat();
+
+            // Dial chart creation function
+            function createDialChart(canvasId, value, label, beforeValue, color) {
+                const ctx = document.getElementById(canvasId).getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: [label, 'Remaining'],
+                        datasets: [{
+                            data: [value, 100 - value],
+                            backgroundColor: [color, '#e2e8f0'], // Color for value, light gray for remaining
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        rotation: 270, // Start from bottom-left
+                        circumference: 180, // Half circle
+                        cutout: '80%', // Thickness of the dial
+                        plugins: {
+                            legend: {
+                                display: false // No legend for dials
+                            },
+                            tooltip: {
+                                enabled: false // No tooltips for dials
+                            }
+                        },
+                        maintainAspectRatio: false,
+                        responsive: true,
+                        animation: {
+                            animateRotate: true,
+                            animateScale: true
+                        }
+                    }
+                });
+            }
+
+            // Data for the dials
+            const indicators = [
+                { id: 'strategicAlignment', label: 'Strategic Alignment', before: 30, after: 85, color: '#0d69ff' },
+                { id: 'roleProcessClarity', label: 'Role & Process Clarity', before: 25, after: 90, color: '#198754' },
+                { id: 'orgAgility', label: 'Org. Agility', before: 40, after: 75, color: '#ffc107' },
+                { id: 'strategicCapabilityMaturity', label: 'Strategic Capability Maturity', before: 35, after: 80, color: '#6f42c1' },
+                { id: 'okrAchievementRate', label: 'OKR Achievement Rate', before: 30, after: 70, color: '#dc3545' }
+            ];
+
+            // Render dials
+            const dialsContainer = document.getElementById('dials-grid');
+            if (dialsContainer) { // Check if the container exists before attempting to add content
+                indicators.forEach(indicator => {
+                    const dialHtml = `
+                        <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
+                            <div class="dial-chart-container">
+                                <canvas id="dial-${indicator.id}"></canvas>
+                                <div class="dial-value-text">${indicator.after}%</div>
+                            </div>
+                            <h4 class="mt-2 text-md font-semibold text-gray-800">${indicator.label}</h4>
+                            <p class="text-sm text-gray-500">Before: ${indicator.before}%</p>
+                        </div>
+                    `;
+                    dialsContainer.insertAdjacentHTML('beforeend', dialHtml);
+                    createDialChart(`dial-${indicator.id}`, indicator.after, indicator.label, indicator.before, indicator.color);
+                });
+            }
         });
     </script>
 
