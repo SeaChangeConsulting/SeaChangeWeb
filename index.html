@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blueprint for Agile Growth | Strategic Framework for Startups</title>
+    
+    <!-- Chosen Palette: "Corporate Calm" - A professional and clean palette using a light gray background (#f8f9fa), dark charcoal text (#212529), a primary blue for interactive elements (#0d69ff), and a subtle green for accents (#198754). -->
+    <!-- Application Structure Plan: The SPA uses a single-page, vertical narrative structure to guide the user logically from problem to solution. A sticky navigation bar allows for both linear scrolling and direct access to key sections: "The Problem," "The Solution," "Live Demo," "Why Us," and "Contact." The core of the application is the "Live Demo" section, which uses an interactive tabbed component to showcase the four prototype examples, transforming them from static images into an engaging, hands-on experience. This structure was chosen to mirror the flow of a compelling pitch, making the value proposition clear and easily digestible for a busy CEO. -->
+    <!-- Visualization & Content Choices: The application translates the pitch deck's content into interactive web components. "Growth Chaos" points are presented as clear, icon-driven cards. The "Live Demo" is the centerpiece: 1) The "AI Architect" is a simulated chat built with HTML/JS to demonstrate the conversational AI. 2) The "Strategy Mindmap" is recreated using pure HTML/CSS with nested divs and pseudo-elements for connectors, avoiding forbidden libraries. 3) The "Task Manager" and "Capability View" are built as interactive HTML structures that mimic the look and feel of a real application. This approach was chosen to make the abstract concepts of the service tangible and interactive, proving the "Digital & Visual" promise of the offering. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+            }
+        }
+        .tab-btn.active {
+            border-color: #0d69ff;
+            color: #0d69ff;
+            background-color: #e7f0ff;
+        }
+        .mindmap-container {
+            position: relative;
+            padding: 2rem;
+        }
+        .mindmap-node {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 0.75rem 1.25rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border-left: 4px solid;
+        }
+        .mindmap-children {
+            position: relative;
+            padding-left: 4rem;
+        }
+        .mindmap-children::before {
+            content: '';
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #cbd5e1;
+        }
+        .mindmap-node::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            width: 2rem;
+            height: 2px;
+            background-color: #cbd5e1;
+        }
+        .mindmap-root::before {
+           display: none;
+        }
+        .chat-bubble {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .chat-bubble.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="text-xl font-bold text-gray-800">Blueprint for Growth</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#problem" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">The Problem</a>
+                        <a href="#solution" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">The Solution</a>
+                        <a href="#demo" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Live Demo</a>
+                        <a href="#why-us" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Why Us</a>
+                        <a href="#contact" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium shadow">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#problem" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">The Problem</a>
+                <a href="#solution" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">The Solution</a>
+                <a href="#demo" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Live Demo</a>
+                <a href="#why-us" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Why Us</a>
+                <a href="#contact" class="bg-blue-600 text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium shadow">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative py-20 md:py-32 bg-white overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('http://googleusercontent.com/file_content/1');"></div>
+            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    Your Blueprint for <span class="text-blue-600">Agile Growth</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
+                    Scaling Tech Startups with Intelligence. We transform growth chaos into strategic clarity.
+                </p>
+                <div class="mt-8">
+                    <a href="#demo" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105">See It In Action</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="problem" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">The Challenge</h2>
+                    <p class="mt-2 section-title text-gray-900">The Startup Growth Paradox</p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">You're growing fast, but rapid growth often brings "Growth Chaos." Without a clear strategy-to-execution link, growth becomes a liability, not an asset.</p>
+                </div>
+                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        </div>
+                        <h3 class="mt-5 text-lg font-medium text-gray-900">Misaligned Teams</h3>
+                        <p class="mt-2 text-base text-gray-500">Everyone's busy, but are they pulling in the same direction? Efforts get scattered and impact is diluted.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg>
+                        </div>
+                        <h3 class="mt-5 text-lg font-medium text-gray-900">Unclear Roles</h3>
+                        <p class="mt-2 text-base text-gray-500">Who owns what? Duplication of work and critical gaps emerge, leading to confusion and inefficiency.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0011.667 0l3.181-3.183m-4.991-2.691V5.25a2.25 2.25 0 00-2.25-2.25H5.25a2.25 2.25 0 00-2.25 2.25v4.992" /></svg>
+                        </div>
+                        <h3 class="mt-5 text-lg font-medium text-gray-900">Costly Rework</h3>
+                        <p class="mt-2 text-base text-gray-500">Repeated re-orgs and fixing brittle processes drain valuable time, money, and morale.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="mt-5 text-lg font-medium text-gray-900">Leadership Fatigue</h3>
+                        <p class="mt-2 text-base text-gray-500">Complex decisions made with little clarity leads to executive burnout.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:text-center">
+                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Our Solution</h2>
+                    <p class="mt-2 section-title text-gray-900">A Living Strategy Framework</p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">We help you design your business for agility and sustainable growth. Instead of static plans, we build a living, AI-powered architecture that connects your strategy to execution.</p>
+                </div>
+                <div class="mt-12 flex flex-col items-center">
+                    <div class="text-2xl font-bold text-gray-800 mb-4">Company Strategy</div>
+                    <div class="text-5xl font-bold text-blue-400 mb-6">↓</div>
+                    <div class="bg-blue-50 p-8 rounded-xl shadow-inner border border-blue-200 mx-auto max-w-2xl">
+                        <h3 class="text-xl font-bold text-blue-800 text-center mb-6">Business Capabilities</h3>
+                        <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+                            <div class="bg-white p-6 rounded-full shadow-md w-40 h-40 flex items-center justify-center text-center font-semibold border border-gray-200">People</div>
+                            <div class="text-4xl font-bold text-blue-400">→</div>
+                            <div class="bg-white p-6 rounded-full shadow-md w-40 h-40 flex items-center justify-center text-center font-semibold border border-gray-200">Processes</div>
+                            <div class="text-4xl font-bold text-blue-400">→</div>
+                            <div class="bg-white p-6 rounded-full shadow-md w-40 h-40 flex items-center justify-center text-center font-semibold border border-gray-200">Technology</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:text-center">
+                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">See It In Action</h2>
+                    <p class="mt-2 section-title text-gray-900">Your Intelligent Growth Engine</p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">This isn't just theory. Explore our interactive framework to see how we turn strategy into clarity and action.</p>
+                </div>
+
+                <div class="mt-12 max-w-4xl mx-auto">
+                    <div class="mb-4 border-b border-gray-200">
+                        <div class="flex flex-wrap -mb-px" aria-label="Tabs">
+                            <button class="tab-btn active w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab1">AI Strategy Architect</button>
+                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab2">Strategy Mindmap</button>
+                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab3">Task Manager</button>
+                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab4">Capability View</button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-xl p-4 md:p-8 min-h-[400px]">
+                        <div id="tab1" class="tab-content">
+                            <h3 class="text-lg font-bold mb-2">Benefit: AI-Guided Strategy Breakdown</h3>
+                            <p class="text-gray-600 mb-4">Break down ambitious goals into actionable operational blueprints, guided by AI. Get a head start on identifying core capabilities needed.</p>
+                            <div id="chat-container" class="bg-gray-50 p-4 rounded-lg h-96 overflow-y-auto space-y-4">
+                                <!-- Chat messages will be injected here -->
+                            </div>
+                        </div>
+                        <div id="tab2" class="tab-content hidden">
+                            <h3 class="text-lg font-bold mb-2">Benefit: Visualizing Strategy-to-Execution Flow</h3>
+                            <p class="text-gray-600 mb-4">See a real-time, interactive map of how your strategic objectives link directly to the People, Processes, and Technology required to achieve them.</p>
+                            <div class="mindmap-container overflow-x-auto">
+                                <div class="mindmap-node mindmap-root" style="border-color: #3b82f6;">Target: Sellable business worth RXbn by 2030</div>
+                                <div class="mindmap-children">
+                                    <div class="mindmap-node" style="border-color: #a7f3d0;">Enterprise Sales & Account Management</div>
+                                    <div class="mindmap-children">
+                                         <div class="mindmap-node" style="border-color: #6ee7b7;">People
+                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
+                                                <li>Enterprise account executives</li>
+                                                <li>Solution consultants / pre-sales engineers</li>
+                                                <li>Customer success managers</li>
+                                            </ul>
+                                         </div>
+                                         <div class="mindmap-node" style="border-color: #34d399;">Processes
+                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
+                                                <li>Strategic account planning</li>
+                                                <li>Enterprise sales lifecycle (prospecting to close)</li>
+                                                <li>Client onboarding & relationship management</li>
+                                            </ul>
+                                         </div>
+                                         <div class="mindmap-node" style="border-color: #10b981;">Technology
+                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
+                                                <li>CRM (e.g., Salesforce, HubSpot, Zoho)</li>
+                                                <li>Proposal automation tools</li>
+                                                <li>Sales enablement platforms (e.g., Highspot)</li>
+                                            </ul>
+                                         </div>
+                                    </div>
+                                    <div class="mindmap-node" style="border-color: #a7f3d0;">Scalable Delivery Operations</div>
+                                    <div class="mindmap-children">
+                                         <div class="mindmap-node" style="border-color: #6ee7b7;">People
+                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
+                                                <li>Project and program managers</li>
+                                                <li>Technical delivery leads and solution architects</li>
+                                                <li>QA and service delivery coordinators</li>
+                                            </ul>
+                                         </div>
+                                         <div class="mindmap-node" style="border-color: #34d399;">Processes
+                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
+                                                <li>Project and resource planning</li>
+                                                <li>Delivery playbooks and SOPs</li>
+                                                <li>Risk and quality management</li>
+                                            </ul>
+                                         </div>
+                                         <div class="mindmap-node" style="border-color: #10b981;">Technology
+                                            <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
+                                                <li>Project management tools (e.g., Jira, Asana, MS Project)</li>
+                                                <li>Time tracking and resource allocation tools</li>
+                                            </ul>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab3" class="tab-content hidden">
+                             <h3 class="text-lg font-bold mb-2">Benefit: Operational Task Management</h3>
+                             <p class="text-gray-600 mb-4">Turn strategic plans into trackable operational tasks. Ensure accountability and monitor progress across teams, roles, and capabilities.</p>
+                             <div class="border rounded-lg p-4">
+                                <h4 class="text-xl font-bold text-center mb-2">Operational Task Manager</h4>
+                                <p class="text-center text-gray-500 mb-4">Track and manage the actions required to operationalize your business goal.</p>
+                                <div class="mb-4">
+                                    <label class="font-semibold">Project Completion</label>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 12%"></div>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-4 gap-4 mb-4">
+                                    <select class="w-full p-2 border rounded-md"><option>All Statuses</option></select>
+                                    <select class="w-full p-2 border rounded-md"><option>Marketing & User Acquisition</option></select>
+                                    <select class="w-full p-2 border rounded-md"><option>All Job Roles</option></select>
+                                    <button class="w-full bg-blue-600 text-white p-2 rounded-md font-bold">Add New Task</button>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="bg-gray-50 p-4 rounded-lg border">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <h5 class="font-bold">Contract freelancer / Hire Graphic Designer</h5>
+                                                <p class="text-sm text-gray-500">Capability: Marketing & User Acquisition</p>
+                                            </div>
+                                            <span class="text-xs font-medium bg-red-100 text-red-800 px-2 py-1 rounded-full">Not Started</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg border">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <h5 class="font-bold">Hire Market Researcher / Assign to Product Manager</h5>
+                                                <p class="text-sm text-gray-500">Capability: Marketing & Research & Strategy</p>
+                                            </div>
+                                            <span class="text-xs font-medium bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">In Progress</span>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                        <div id="tab4" class="tab-content hidden">
+                            <h3 class="text-lg font-bold mb-2">Benefit: Your Business Capabilities at a Glance</h3>
+                            <p class="text-gray-600 mb-4">Gain clarity on who does what and how, mitigating key-person reliance and ensuring every part of your organization contributes to your strategic goals.</p>
+                            <div class="border rounded-lg p-4 h-96 overflow-y-auto">
+                                <h4 class="text-lg font-bold mb-2">Business Capabilities</h4>
+                                <ul class="space-y-1">
+                                    <li>▶ Strategic Capabilities</li>
+                                    <li>▶ Core Capabilities</li>
+                                    <li class="pl-4">▼ Supporting Capabilities
+                                        <ul class="pl-4 space-y-1 mt-1">
+                                            <li class="pl-4">▼ Finance
+                                                <ul class="pl-4 space-y-1 mt-1 text-gray-600">
+                                                    <li>• Financial Strategy and Budgeting</li>
+                                                    <li>• Management Accounting</li>
+                                                    <li>• Accounts Receivable and Credit Management</li>
+                                                </ul>
+                                            </li>
+                                            <li class="pl-4">▶ Payroll</li>
+                                            <li class="pl-4">▶ Tax Management</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Why Partner With Us?</h2>
+                        <p class="mt-2 section-title text-gray-900">Your Strategic Growth Guide</p>
+                        <p class="mt-4 text-lg text-gray-500">I bring over 15 years of deep expertise in Organizational Effectiveness, Business Architecture, and Digital HR Transformation, specifically adapted for fast-moving tech startups.</p>
+                        <ul class="mt-8 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0"><svg class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></div>
+                                <p class="ml-3 text-base text-gray-700"><span class="font-semibold">AI-Powered Delivery:</span> Leverage AI to automate heavy-lifting in job design, talent mapping, and process optimization.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0"><svg class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></div>
+                                <p class="ml-3 text-base text-gray-700"><span class="font-semibold">Practical & Agile:</span> We translate complex "enterprise thinking" into simple, actionable frameworks that fit your startup's speed and constraints.</p>
+                            </li>
+                             <li class="flex items-start">
+                                <div class="flex-shrink-0"><svg class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></div>
+                                <p class="ml-3 text-base text-gray-700"><span class="font-semibold">Proven Expertise:</span> TOGAF & Prosci certified, with a track record of transforming tech organizations like Derivco, BCX, and Dimension Data.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-100 p-8 rounded-lg text-center">
+                        <img src="https://placehold.co/150x150/E2E8F0/4A5568?text=NS" alt="Nico Saunders" class="w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-white">
+                        <h3 class="text-xl font-bold">Nico Saunders</h3>
+                        <p class="text-blue-600 font-semibold">Strategic HR & Business Architect</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title text-gray-900">Ready to Build for the Future?</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Let's discuss how an intelligent, living strategy framework can accelerate your startup's growth and minimize chaos.</p>
+                <div class="mt-8">
+                    <a href="mailto:nicosaunders@icloud.com" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105">Schedule a Demo</a>
+                     <p class="mt-6 text-gray-600">Or contact me directly:</p>
+                     <p class="mt-2 text-lg font-semibold text-gray-800">nicosaunders@icloud.com</p>
+                     <p class="mt-1 text-lg font-semibold text-gray-800">+27 82 065 4274</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            &copy; 2025 Nico Saunders. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const tabs = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+
+                    const activeTabContent = document.getElementById(tab.dataset.tab);
+                    activeTabContent.classList.remove('hidden');
+
+                    if (tab.dataset.tab === 'tab1') {
+                        simulateChat();
+                    }
+                });
+            });
+            
+            function simulateChat() {
+                const chatContainer = document.getElementById('chat-container');
+                chatContainer.innerHTML = ''; 
+
+                const messages = [
+                    { from: 'ai', text: "Hello! I'm your Business Goal Architect AI. I'll help you break down your business goal into a detailed operational blueprint. What is the primary business goal you want to operationalize?" },
+                    { from: 'user', text: "Increase revenue by 45% before end of Dec 2030" },
+                    { from: 'ai', text: "Great! That's a clear and ambitious goal. To achieve this, we'll need to identify the core capabilities your business needs to strengthen or develop. Which of these areas do you believe will be the primary driver for reaching your 45% revenue increase?", suggestions: ["Customer Acquisition & Growth", "Customer Retention & Expansion", "Pricing Strategy Optimization"] }
+                ];
+
+                let delay = 0;
+                messages.forEach((msg, index) => {
+                    setTimeout(() => {
+                        const bubble = document.createElement('div');
+                        bubble.className = 'chat-bubble max-w-lg p-3 rounded-lg';
+                        
+                        if (msg.from === 'user') {
+                            bubble.classList.add('bg-blue-500', 'text-white', 'ml-auto');
+                        } else {
+                            bubble.classList.add('bg-gray-200', 'text-gray-800', 'mr-auto');
+                        }
+                        
+                        let messageHTML = `<p>${msg.text}</p>`;
+                        if (msg.suggestions) {
+                            messageHTML += '<div class="mt-2 pt-2 border-t border-gray-300"><p class="font-semibold text-sm">Here are some suggestions:</p><ul class="list-disc list-inside text-sm">';
+                            msg.suggestions.forEach(s => {
+                                messageHTML += `<li>${s}</li>`;
+                            });
+                            messageHTML += '</ul></div>';
+                        }
+                        bubble.innerHTML = messageHTML;
+                        
+                        chatContainer.appendChild(bubble);
+                        setTimeout(() => bubble.classList.add('visible'), 50);
+                        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+                    }, delay);
+                    delay += 1200; 
+                });
+            }
+            
+            simulateChat();
+        });
+    </script>
+
+</body>
+</html>
