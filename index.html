@@ -7,7 +7,7 @@
     
     <!-- Chosen Palette: SeaChange Turquoise/Teal. Main colors from logo: #20b2aa (Light Sea Green), #008b8b (Dark Cyan), #40e0d0 (Turquoise), #48d1cc (Medium Turquoise). Backgrounds: #f0fdfd, #e6fffa. Text: #212529, #4a5568. -->
     <!-- Application Structure Plan: The SPA uses a single-page, vertical narrative structure to guide the user logically from problem to solution. A sticky navigation bar allows for both linear scrolling and direct access to key sections: "The Problem," "The Solution," "Live Demo," "Impact," "Why Us," and "Contact." The core of the application is the "Live Demo" section, which uses an interactive tabbed component to showcase the four prototype examples, transforming them from static images into an engaging, hands-on experience. The "Impact" section uses dynamically rendered dial charts to visualize quantifiable outcomes. This structure was chosen to mirror the flow of a compelling pitch, making the value proposition clear and easily digestible for a CEO. -->
-    <!-- Visualization & Content Choices: The application translates the pitch deck's content into interactive web components. "Growth Chaos" points are presented as clear, icon-driven cards. The "Solution" section uses a simple HTML/CSS flow diagram. The "Live Demo" is the centerpiece: 1) The "AI Architect" is a simulated chat built with HTML/JS. 2) The "Strategy Mindmap" is recreated using pure HTML/CSS with nested divs and pseudo-elements. 3) The "Task Manager" and "Capability View" are built as interactive HTML structures. The "Impact" section uses Chart.js for custom dial graphs. This approach was chosen to make the abstract concepts of the service tangible and interactive, proving the "Digital and Visual" promise of the offering. -->
+    <!-- Visualization & Content Choices: The application translates the pitch deck's content into interactive web components. "Growth Chaos" points are presented as clear, icon-driven cards. The "Solution" section uses a simple HTML/CSS flow diagram. The "Live Demo" is the centerpiece: 1) The "AI Architect" is a simulated chat built with HTML/JS. 2) The "Strategy Mindmap" is recreated using pure HTML/CSS with nested divs and pseudo-elements. 3) The "Task Manager" and "Capability View" are built as interactive HTML structures. 4) The "Impact" section uses Chart.js for custom dial graphs. This approach was chosen to make the abstract concepts of the service tangible and interactive, proving the "Digital and Visual" promise of the offering. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -481,9 +481,9 @@
                         </ul>
                     </div>
                     <div class="bg-gray-100 p-8 rounded-lg text-center">
-                        <img src="YOUR_NICO_PIC_GITHUB_URL_HERE" alt="Nico Saunders" class="w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-white object-cover">
+                        <!-- Removed the img tag and its surrounding div -->
                         <h3 class="text-xl font-bold">Nico Saunders</h3>
-                        <p class="text-teal-600 font-semibold">Strategic HR & Business Architect</p>
+                        <p class="text-teal-600 font-semibold">Business Architect | Organisational Development & Transformation Specialist</p>
                     </div>
                 </div>
             </div>
@@ -644,7 +644,8 @@
                 { id: 'roleProcessClarity', label: 'Role & Process Clarity', before: 25, after: 90, color: '#008b8b' }, /* Dark Cyan */
                 { id: 'orgAgility', label: 'Org. Agility', before: 40, after: 75, color: '#40e0d0' }, /* Turquoise */
                 { id: 'strategicCapabilityMaturity', label: 'Strategic Capability Maturity', before: 35, after: 80, color: '#48d1cc' }, /* Medium Turquoise */
-                { id: 'okrAchievementRate', label: 'OKR Achievement Rate', before: 30, after: 70, color: '#006666' } /* Darker Teal */
+                { id: 'okrAchievementRate', label: 'OKR Achievement Rate', before: 30, after: 70, color: '#006666' }, /* Darker Teal */
+                { id: 'newStartProductivity', label: 'New Start Time to Productivity', before: 60, after: 20, color: '#80ced6' } /* Another teal shade, lower is better for this metric */
             ];
 
             // Render dials
