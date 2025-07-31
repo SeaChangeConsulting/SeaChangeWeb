@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Blueprint for Agile Growth | Strategic Framework for Startups</title>
+    <title>SeaChange Consulting | Growth OS for Agile Growth</title>
     
-    <!-- Chosen Palette: "Corporate Calm" - A professional and clean palette using a light gray background (#f8f9fa), dark charcoal text (#212529), a primary blue for interactive elements (#0d69ff), and a subtle green for accents (#198754). -->
-    <!-- Application Structure Plan: The SPA uses a single-page, vertical narrative structure to guide the user logically from problem to solution. A sticky navigation bar allows for both linear scrolling and direct access to key sections: "The Problem," "The Solution," "Live Demo," "Why Us," and "Contact." The core of the application is the "Live Demo" section, which uses an interactive tabbed component to showcase the four prototype examples, transforming them from static images into an engaging, hands-on experience. This structure was chosen to mirror the flow of a compelling pitch, making the value proposition clear and easily digestible for a busy CEO. -->
-    <!-- Visualization & Content Choices: The application translates the pitch deck's content into interactive web components. "Growth Chaos" points are presented as clear, icon-driven cards. The "Live Demo" is the centerpiece: 1) The "AI Architect" is a simulated chat built with HTML/JS to demonstrate the conversational AI. 2) The "Strategy Mindmap" is recreated using pure HTML/CSS with nested divs and pseudo-elements for connectors, avoiding forbidden libraries. 3) The "Task Manager" and "Capability View" are built as interactive HTML structures that mimic the look and feel of a real application. This approach was chosen to make the abstract concepts of the service tangible and interactive, proving the "Digital & Visual" promise of the offering. -->
+    <!-- Chosen Palette: SeaChange Turquoise/Teal. Main colors from logo: #20b2aa (Light Sea Green), #008b8b (Dark Cyan), #40e0d0 (Turquoise), #48d1cc (Medium Turquoise). Backgrounds: #f0fdfd, #e6fffa. Text: #212529, #4a5568. -->
+    <!-- Application Structure Plan: The SPA uses a single-page, vertical narrative structure to guide the user logically from problem to solution. A sticky navigation bar allows for both linear scrolling and direct access to key sections: "The Problem," "The Solution," "Live Demo," "Impact," "Why Us," and "Contact." The core of the application is the "Live Demo" section, which uses an interactive tabbed component to showcase the four prototype examples, transforming them from static images into an engaging, hands-on experience. The "Impact" section uses dynamically rendered dial charts to visualize quantifiable outcomes. This structure was chosen to mirror the flow of a compelling pitch, making the value proposition clear and easily digestible for a CEO. -->
+    <!-- Visualization & Content Choices: The application translates the pitch deck's content into interactive web components. "Growth Chaos" points are presented as clear, icon-driven cards. The "Solution" section uses a simple HTML/CSS flow diagram. The "Live Demo" is the centerpiece: 1) The "AI Architect" is a simulated chat built with HTML/JS. 2) The "Strategy Mindmap" is recreated using pure HTML/CSS with nested divs and pseudo-elements. 3) The "Task Manager" and "Capability View" are built as interactive HTML structures. The "Impact" section uses Chart.js for custom dial graphs. This approach was chosen to make the abstract concepts of the service tangible and interactive, proving the "Digital and Visual" promise of the offering. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,11 +16,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Base styles from SeaChange logo for consistency */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
+            font-family: 'Inter', sans-serif; /* Changed from Arial to Inter */
+            background: linear-gradient(135deg, #f0fdfd 0%, #e6fffa 100%); /* Light turquoise gradient */
+            color: #212529; /* Dark charcoal for main text */
+            min-height: 100vh;
         }
+
+        /* Logo specific styles */
+        .logo-icon {
+            width: 40px; /* Adjusted for header */
+            height: 40px; /* Adjusted for header */
+            position: relative;
+        }
+
+        .wave-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #20b2aa 0%, #008b8b 100%);
+        }
+
+        .wave {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(135deg, #40e0d0 0%, #48d1cc 100%);
+            border-radius: 50%;
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: 0.5s;
+            opacity: 0.7;
+        }
+
+        .wave:nth-child(3) {
+            animation-delay: 1s;
+            opacity: 0.5;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateY(20px) scale(0.8); }
+            50% { transform: translateY(-10px) scale(1.1); }
+        }
+
+        .company-name-text {
+            font-size: 1.5rem; /* Adjusted for header */
+            font-weight: 700;
+            background: linear-gradient(135deg, #20b2aa 0%, #008b8b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px; /* Slightly reduced */
+        }
+
+        /* General pitch deck styles, updated for new palette */
         .section-title {
             font-size: 2.25rem;
             font-weight: 700;
@@ -33,9 +87,9 @@
             }
         }
         .tab-btn.active {
-            border-color: #0d69ff;
-            color: #0d69ff;
-            background-color: #e7f0ff;
+            border-color: #20b2aa; /* Active tab border */
+            color: #20b2aa; /* Active tab text */
+            background-color: #e6fffa; /* Light background for active tab */
         }
         .mindmap-container {
             position: relative;
@@ -49,7 +103,7 @@
             padding: 0.75rem 1.25rem;
             background-color: white;
             border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 139, 139, 0.1), 0 2px 4px -2px rgba(0, 139, 139, 0.05); /* Teal-ish shadow */
             border-left: 4px solid;
         }
         .mindmap-children {
@@ -63,7 +117,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background-color: #cbd5e1;
+            background-color: #cbd5e1; /* Gray for connectors */
         }
         .mindmap-node::before {
             content: '';
@@ -72,7 +126,7 @@
             top: 50%;
             width: 2rem;
             height: 2px;
-            background-color: #cbd5e1;
+            background-color: #cbd5e1; /* Gray for connectors */
         }
         .mindmap-root::before {
            display: none;
@@ -113,21 +167,28 @@
     <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#hero" class="text-xl font-bold text-gray-800">Blueprint for Growth</a>
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="logo-icon">
+                        <div class="wave-container">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                    </div>
+                    <span class="company-name-text">SeaChange</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#problem" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">The Problem</a>
-                        <a href="#solution" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">The Solution</a>
-                        <a href="#demo" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Live Demo</a>
-                        <a href="#impact" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">The Impact</a>
-                        <a href="#why-us" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Why Us</a>
-                        <a href="#contact" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium shadow">Contact</a>
+                        <a href="#problem" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">The Problem</a>
+                        <a href="#solution" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">The Solution</a>
+                        <a href="#demo" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Live Demo</a>
+                        <a href="#impact" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">The Impact</a>
+                        <a href="#why-us" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Why Us</a>
+                        <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-md text-sm font-medium shadow">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
                         <span class="sr-only">Open main menu</span>
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -138,12 +199,12 @@
         </nav>
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#problem" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">The Problem</a>
-                <a href="#solution" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">The Solution</a>
-                <a href="#demo" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Live Demo</a>
-                <a href="#impact" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">The Impact</a>
-                <a href="#why-us" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Why Us</a>
-                <a href="#contact" class="bg-blue-600 text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium shadow">Contact</a>
+                <a href="#problem" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">The Problem</a>
+                <a href="#solution" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">The Solution</a>
+                <a href="#demo" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Live Demo</a>
+                <a href="#impact" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">The Impact</a>
+                <a href="#why-us" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Why Us</a>
+                <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 block px-3 py-2 rounded-md text-base font-medium shadow">Contact</a>
             </div>
         </div>
     </header>
@@ -153,13 +214,13 @@
             <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('http://googleusercontent.com/file_content/1');"></div>
             <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                    Your Blueprint for <span class="text-blue-600">Agile Growth</span>
+                    Your Blueprint for <span class="text-teal-600">Agile Growth</span>
                 </h1>
                 <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
                     Scaling Tech Startups with Intelligence. We transform growth chaos into strategic clarity.
                 </p>
                 <div class="mt-8">
-                    <a href="#demo" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105">See It In Action</a>
+                    <a href="#demo" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">See It In Action</a>
                 </div>
             </div>
         </section>
@@ -167,34 +228,34 @@
         <section id="problem" class="py-16 md:py-24">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">The Challenge</h2>
+                    <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">The Challenge</h2>
                     <p class="mt-2 section-title text-gray-900">The Startup Growth Paradox</p>
                     <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">You're growing fast, but rapid growth often brings "Growth Chaos." Without a clear strategy-to-execution link, growth becomes a liability, not an asset.</p>
                 </div>
                 <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-100 text-teal-600">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
                         </div>
                         <h3 class="mt-5 text-lg font-medium text-gray-900">Misaligned Teams</h3>
                         <p class="mt-2 text-base text-gray-500">Everyone's busy, but are they pulling in the same direction? Efforts get scattered and impact is diluted.</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-100 text-teal-600">
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg>
                         </div>
                         <h3 class="mt-5 text-lg font-medium text-gray-900">Unclear Roles</h3>
                         <p class="mt-2 text-base text-gray-500">Who owns what? Duplication of work and critical gaps emerge, leading to confusion and inefficiency.</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-100 text-teal-600">
                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0011.667 0l3.181-3.183m-4.991-2.691V5.25a2.25 2.25 0 00-2.25-2.25H5.25a2.25 2.25 0 00-2.25 2.25v4.992" /></svg>
                         </div>
                         <h3 class="mt-5 text-lg font-medium text-gray-900">Costly Rework</h3>
                         <p class="mt-2 text-base text-gray-500">Repeated re-orgs and fixing brittle processes drain valuable time, money, and morale.</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-100 text-teal-600">
                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         </div>
                         <h3 class="mt-5 text-lg font-medium text-gray-900">Leadership Fatigue</h3>
@@ -207,20 +268,20 @@
         <section id="solution" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:text-center">
-                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Our Solution</h2>
+                    <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Our Solution</h2>
                     <p class="mt-2 section-title text-gray-900">A Living Strategy Framework</p>
                     <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">We help you design your business for agility and sustainable growth. Instead of static plans, we build a living, AI-powered architecture that connects your strategy to execution.</p>
                 </div>
                 <div class="mt-12 flex flex-col items-center">
                     <div class="text-2xl font-bold text-gray-800 mb-4">Company Strategy</div>
-                    <div class="text-5xl font-bold text-blue-400 mb-6">↓</div>
-                    <div class="bg-blue-50 p-8 rounded-xl shadow-inner border border-blue-200 mx-auto max-w-2xl">
-                        <h3 class="text-xl font-bold text-blue-800 text-center mb-6">Business Capabilities</h3>
+                    <div class="text-5xl font-bold text-teal-400 mb-6">↓</div>
+                    <div class="bg-teal-50 p-8 rounded-xl shadow-inner border border-teal-200 mx-auto max-w-2xl">
+                        <h3 class="text-xl font-bold text-teal-800 text-center mb-6">Business Capabilities</h3>
                         <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
                             <div class="bg-white p-6 rounded-full shadow-md w-40 h-40 flex items-center justify-center text-center font-semibold border border-gray-200">People</div>
-                            <div class="text-4xl font-bold text-blue-400">→</div>
+                            <div class="text-4xl font-bold text-teal-400">→</div>
                             <div class="bg-white p-6 rounded-full shadow-md w-40 h-40 flex items-center justify-center text-center font-semibold border border-gray-200">Processes</div>
-                            <div class="text-4xl font-bold text-blue-400">→</div>
+                            <div class="text-4xl font-bold text-teal-400">→</div>
                             <div class="bg-white p-6 rounded-full shadow-md w-40 h-40 flex items-center justify-center text-center font-semibold border border-gray-200">Technology</div>
                         </div>
                     </div>
@@ -231,7 +292,7 @@
         <section id="demo" class="py-16 md:py-24">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:text-center">
-                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">See It In Action</h2>
+                    <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">See It In Action</h2>
                     <p class="mt-2 section-title text-gray-900">Your Intelligent Growth Engine</p>
                     <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">This isn't just theory. Explore our interactive framework to see how we turn strategy into clarity and action.</p>
                 </div>
@@ -239,10 +300,10 @@
                 <div class="mt-12 max-w-4xl mx-auto">
                     <div class="mb-4 border-b border-gray-200">
                         <div class="flex flex-wrap -mb-px" aria-label="Tabs">
-                            <button class="tab-btn active w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab1">AI Strategy Architect</button>
-                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab2">Strategy Mindmap</button>
-                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab3">Task Manager</button>
-                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-blue-600 hover:border-blue-300" data-tab="tab4">Capability View</button>
+                            <button class="tab-btn active w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-teal-600 hover:border-teal-300" data-tab="tab1">AI Strategy Architect</button>
+                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-teal-600 hover:border-teal-300" data-tab="tab2">Strategy Mindmap</button>
+                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-teal-600 hover:border-teal-300" data-tab="tab3">Task Manager</button>
+                            <button class="tab-btn w-1/2 md:w-auto text-center md:text-left mr-2 py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-teal-600 hover:border-teal-300" data-tab="tab4">Capability View</button>
                         </div>
                     </div>
                     <div class="bg-white rounded-lg shadow-xl p-4 md:p-8 min-h-[400px]">
@@ -257,25 +318,25 @@
                             <h3 class="text-lg font-bold mb-2">Benefit: Visualizing Strategy-to-Execution Flow</h3>
                             <p class="text-gray-600 mb-4">See a real-time, interactive map of how your strategic objectives link directly to the People, Processes, and Technology required to achieve them.</p>
                             <div class="mindmap-container overflow-x-auto">
-                                <div class="mindmap-node mindmap-root" style="border-color: #3b82f6;">Target: Sellable business worth RXbn by 2030</div>
+                                <div class="mindmap-node mindmap-root" style="border-color: #20b2aa;">Target: Sellable business worth RXbn by 2030</div>
                                 <div class="mindmap-children">
-                                    <div class="mindmap-node" style="border-color: #a7f3d0;">Enterprise Sales & Account Management</div>
+                                    <div class="mindmap-node" style="border-color: #40e0d0;">Enterprise Sales & Account Management</div>
                                     <div class="mindmap-children">
-                                         <div class="mindmap-node" style="border-color: #6ee7b7;">People
+                                         <div class="mindmap-node" style="border-color: #48d1cc;">People
                                             <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
                                                 <li>Enterprise account executives</li>
                                                 <li>Solution consultants / pre-sales engineers</li>
                                                 <li>Customer success managers</li>
                                             </ul>
                                          </div>
-                                         <div class="mindmap-node" style="border-color: #34d399;">Processes
+                                         <div class="mindmap-node" style="border-color: #008b8b;">Processes
                                             <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
                                                 <li>Strategic account planning</li>
                                                 <li>Enterprise sales lifecycle (prospecting to close)</li>
                                                 <li>Client onboarding & relationship management</li>
                                             </ul>
                                          </div>
-                                         <div class="mindmap-node" style="border-color: #10b981;">Technology
+                                         <div class="mindmap-node" style="border-color: #006666;">Technology
                                             <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
                                                 <li>CRM (e.g., Salesforce, HubSpot, Zoho)</li>
                                                 <li>Proposal automation tools</li>
@@ -283,23 +344,23 @@
                                             </ul>
                                          </div>
                                     </div>
-                                    <div class="mindmap-node" style="border-color: #a7f3d0;">Scalable Delivery Operations</div>
+                                    <div class="mindmap-node" style="border-color: #40e0d0;">Scalable Delivery Operations</div>
                                     <div class="mindmap-children">
-                                         <div class="mindmap-node" style="border-color: #6ee7b7;">People
+                                         <div class="mindmap-node" style="border-color: #48d1cc;">People
                                             <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
                                                 <li>Project and program managers</li>
                                                 <li>Technical delivery leads and solution architects</li>
                                                 <li>QA and service delivery coordinators</li>
                                             </ul>
                                          </div>
-                                         <div class="mindmap-node" style="border-color: #34d399;">Processes
+                                         <div class="mindmap-node" style="border-color: #008b8b;">Processes
                                             <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
                                                 <li>Project and resource planning</li>
                                                 <li>Delivery playbooks and SOPs</li>
                                                 <li>Risk and quality management</li>
                                             </ul>
                                          </div>
-                                         <div class="mindmap-node" style="border-color: #10b981;">Technology
+                                         <div class="mindmap-node" style="border-color: #006666;">Technology
                                             <ul class="text-xs list-disc list-inside ml-4 mt-1 text-gray-700">
                                                 <li>Project management tools (e.g., Jira, Asana, MS Project)</li>
                                                 <li>Time tracking and resource allocation tools</li>
@@ -310,7 +371,7 @@
                             </div>
                         </div>
                         <div id="tab3" class="tab-content hidden">
-                             <h3 class="text-lg font-bold mb-2">Benefit: Operational Task Management</h3>
+                             <h3 class="text-lg font-bold mb-2">Benefit: Operational Task Manager</h3>
                              <p class="text-gray-600 mb-4">Turn strategic plans into trackable operational tasks. Ensure accountability and monitor progress across teams, roles, and capabilities.</p>
                              <div class="border rounded-lg p-4">
                                 <h4 class="text-xl font-bold text-center mb-2">Operational Task Manager</h4>
@@ -318,14 +379,14 @@
                                 <div class="mb-4">
                                     <label class="font-semibold">Project Completion</label>
                                     <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 12%"></div>
+                                        <div class="bg-teal-600 h-2.5 rounded-full" style="width: 12%"></div>
                                     </div>
                                 </div>
                                 <div class="grid md:grid-cols-4 gap-4 mb-4">
                                     <select class="w-full p-2 border rounded-md"><option>All Statuses</option></select>
                                     <select class="w-full p-2 border rounded-md"><option>Marketing & User Acquisition</option></select>
                                     <select class="w-full p-2 border rounded-md"><option>All Job Roles</option></select>
-                                    <button class="w-full bg-blue-600 text-white p-2 rounded-md font-bold">Add New Task</button>
+                                    <button class="w-full bg-teal-600 text-white p-2 rounded-md font-bold">Add New Task</button>
                                 </div>
                                 <div class="space-y-4">
                                     <div class="bg-gray-50 p-4 rounded-lg border">
@@ -381,12 +442,18 @@
         <section id="impact" class="py-16 md:py-24">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:text-center">
-                    <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">The Impact</h2>
+                    <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">The Impact</h2>
                     <p class="mt-2 section-title text-gray-900">Quantifiable Outcomes</p>
                     <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Visualizing the transformation from chaos to clarity with key strategic alignment indicators.</p>
                 </div>
                 <div id="dials-grid" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Dial graphs will be dynamically inserted here by JavaScript -->
+                </div>
+                <!-- New link to Growth OS Deep Dive Document -->
+                <div class="mt-12 p-6 bg-teal-50 rounded-lg border border-teal-200 shadow-sm text-center">
+                    <h3 class="text-xl font-semibold text-teal-800 mb-4">Want a Deeper Dive into Growth OS?</h3>
+                    <p class="text-gray-700 mb-4">Download our comprehensive whitepaper for a detailed look into the Growth OS framework, its methodology, and the quantified impact.</p>
+                    <a href="Growth%20OS%20-%20Your%20Digital%20Twin%20for%20Agile%20Growth%20-%20VO.pdf" target="_blank" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Download Whitepaper</a>
                 </div>
             </div>
         </section>
@@ -395,28 +462,28 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="text-base font-semibold text-blue-600 tracking-wide uppercase">Why Partner With Us?</h2>
+                        <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Why Partner With Us?</h2>
                         <p class="mt-2 section-title text-gray-900">Your Strategic Growth Guide</p>
-                        <p class="mt-4 text-lg text-gray-500">I bring over 15 years of deep expertise in Organizational Effectiveness, Business Architecture, and Digital HR Transformation, specifically adapted for fast-moving tech startups.</p>
+                        <p class="mt-4 text-lg text-gray-500">We bring over 15 years of deep expertise in Organizational Effectiveness, Business Architecture, and Digital HR Transformation, specifically adapted for fast-moving tech startups.</p>
                         <ul class="mt-8 space-y-4">
                             <li class="flex items-start">
-                                <div class="flex-shrink-0"><svg class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></div>
+                                <div class="flex-shrink-0"><svg class="h-6 w-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></div>
                                 <p class="ml-3 text-base text-gray-700"><span class="font-semibold">AI-Powered Delivery:</span> Leverage AI to automate heavy-lifting in job design, talent mapping, and process optimization.</p>
                             </li>
                             <li class="flex items-start">
-                                <div class="flex-shrink-0"><svg class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></div>
+                                <div class="flex-shrink-0"><svg class="h-6 w-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></div>
                                 <p class="ml-3 text-base text-gray-700"><span class="font-semibold">Practical & Agile:</span> We translate complex "enterprise thinking" into simple, actionable frameworks that fit your startup's speed and constraints.</p>
                             </li>
                              <li class="flex items-start">
-                                <div class="flex-shrink-0"><svg class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></div>
+                                <div class="flex-shrink-0"><svg class="h-6 w-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></div>
                                 <p class="ml-3 text-base text-gray-700"><span class="font-semibold">Proven Expertise:</span> TOGAF & Prosci certified, with a track record of transforming tech organizations like Derivco, BCX, and Dimension Data.</p>
                             </li>
                         </ul>
                     </div>
                     <div class="bg-gray-100 p-8 rounded-lg text-center">
-                        <img src="https://placehold.co/150x150/E2E8F0/4A5568?text=NS" alt="Nico Saunders" class="w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-white">
+                        <img src="http://googleusercontent.com/file_content/2" alt="Nico Saunders" class="w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-white object-cover">
                         <h3 class="text-xl font-bold">Nico Saunders</h3>
-                        <p class="text-blue-600 font-semibold">Strategic HR & Business Architect</p>
+                        <p class="text-teal-600 font-semibold">Strategic HR & Business Architect</p>
                     </div>
                 </div>
             </div>
@@ -427,10 +494,16 @@
                 <h2 class="section-title text-gray-900">Ready to Build for the Future?</h2>
                 <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Let's discuss how an intelligent, living strategy framework can accelerate your startup's growth and minimize chaos.</p>
                 <div class="mt-8">
-                    <a href="mailto:nicosaunders@icloud.com" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105">Schedule a Demo</a>
+                    <a href="mailto:nicosaunders@icloud.com" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Schedule a Demo</a>
                      <p class="mt-6 text-gray-600">Or contact me directly:</p>
                      <p class="mt-2 text-lg font-semibold text-gray-800">nicosaunders@icloud.com</p>
                      <p class="mt-1 text-lg font-semibold text-gray-800">+27 82 065 4274</p>
+                </div>
+                <!-- New link to Growth OS Deep Dive Document in Contact section -->
+                <div class="mt-12 p-6 bg-teal-50 rounded-lg border border-teal-200 shadow-sm">
+                    <h3 class="text-xl font-semibold text-teal-800 mb-4">Want a Deeper Dive into Growth OS?</h3>
+                    <p class="text-gray-700 mb-4">Download our comprehensive whitepaper for a detailed look into the Growth OS framework and its methodology.</p>
+                    <a href="Growth%20OS%20-%20Your%20Digital%20Twin%20for%20Agile%20Growth%20-%20VO.pdf" target="_blank" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Download Whitepaper</a>
                 </div>
             </div>
         </section>
@@ -438,7 +511,7 @@
 
     <footer class="bg-white border-t">
         <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
-            &copy; 2025 Nico Saunders. All Rights Reserved.
+            &copy; 2025 SeaChange. All Rights Reserved.
         </div>
     </footer>
 
@@ -478,6 +551,12 @@
                 });
             });
             
+            // Explicitly trigger the click for the default active tab on page load
+            const initialActiveTabButton = document.querySelector('.tab-btn.active');
+            if (initialActiveTabButton) {
+                initialActiveTabButton.click();
+            }
+
             function simulateChat() {
                 const chatContainer = document.getElementById('chat-container');
                 chatContainer.innerHTML = ''; 
@@ -495,7 +574,7 @@
                         bubble.className = 'chat-bubble max-w-lg p-3 rounded-lg';
                         
                         if (msg.from === 'user') {
-                            bubble.classList.add('bg-blue-500', 'text-white', 'ml-auto');
+                            bubble.classList.add('bg-teal-500', 'text-white', 'ml-auto'); /* Adjusted for teal */
                         } else {
                             bubble.classList.add('bg-gray-200', 'text-gray-800', 'mr-auto');
                         }
@@ -554,13 +633,13 @@
                 });
             }
 
-            // Data for the dials
+            // Data for the dials - Adjusted colors to fit teal palette
             const indicators = [
-                { id: 'strategicAlignment', label: 'Strategic Alignment', before: 30, after: 85, color: '#0d69ff' },
-                { id: 'roleProcessClarity', label: 'Role & Process Clarity', before: 25, after: 90, color: '#198754' },
-                { id: 'orgAgility', label: 'Org. Agility', before: 40, after: 75, color: '#ffc107' },
-                { id: 'strategicCapabilityMaturity', label: 'Strategic Capability Maturity', before: 35, after: 80, color: '#6f42c1' },
-                { id: 'okrAchievementRate', label: 'OKR Achievement Rate', before: 30, after: 70, color: '#dc3545' }
+                { id: 'strategicAlignment', label: 'Strategic Alignment', before: 30, after: 85, color: '#20b2aa' }, /* Light Sea Green */
+                { id: 'roleProcessClarity', label: 'Role & Process Clarity', before: 25, after: 90, color: '#008b8b' }, /* Dark Cyan */
+                { id: 'orgAgility', label: 'Org. Agility', before: 40, after: 75, color: '#40e0d0' }, /* Turquoise */
+                { id: 'strategicCapabilityMaturity', label: 'Strategic Capability Maturity', before: 35, after: 80, color: '#48d1cc' }, /* Medium Turquoise */
+                { id: 'okrAchievementRate', label: 'OKR Achievement Rate', before: 30, after: 70, color: '#006666' } /* Darker Teal */
             ];
 
             // Render dials
