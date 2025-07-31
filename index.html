@@ -481,7 +481,7 @@
                         </ul>
                     </div>
                     <div class="bg-gray-100 p-8 rounded-lg text-center">
-                        <img src="http://googleusercontent.com/file_content/2" alt="Nico Saunders" class="w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-white object-cover">
+                        <img src="YOUR_NICO_PIC_GITHUB_URL_HERE" alt="Nico Saunders" class="w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-white object-cover">
                         <h3 class="text-xl font-bold">Nico Saunders</h3>
                         <p class="text-teal-600 font-semibold">Strategic HR & Business Architect</p>
                     </div>
@@ -601,6 +601,11 @@
             // Dial chart creation function
             function createDialChart(canvasId, value, label, beforeValue, color) {
                 const ctx = document.getElementById(canvasId).getContext('2d');
+                // Destroy existing chart if it exists
+                const existingChart = Chart.getChart(canvasId);
+                if (existingChart) {
+                    existingChart.destroy();
+                }
                 new Chart(ctx, {
                     type: 'doughnut',
                     data: {
@@ -645,6 +650,8 @@
             // Render dials
             const dialsContainer = document.getElementById('dials-grid');
             if (dialsContainer) { // Check if the container exists before attempting to add content
+                // Clear existing dials before re-rendering to prevent duplicates
+                dialsContainer.innerHTML = ''; 
                 indicators.forEach(indicator => {
                     const dialHtml = `
                         <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center text-center">
