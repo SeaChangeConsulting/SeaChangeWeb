@@ -6,8 +6,8 @@
     <title>SeaChange Consulting | Growth OS for Agile Growth</title>
     
     <!-- Chosen Palette: SeaChange Turquoise/Teal. Main colors from logo: #20b2aa (Light Sea Green), #008b8b (Dark Cyan), #40e0d0 (Turquoise), #48d1cc (Medium Turquoise). Backgrounds: #f0fdfd, #e6fffa. Text: #212529, #4a5568. -->
-    <!-- Application Structure Plan: The SPA uses a single-page, vertical narrative structure to guide the user logically from problem to solution. A sticky navigation bar allows for both linear scrolling and direct access to key sections: "The Problem," "The Solution," "Live Demo," "Impact," "Why Us," and "Contact." The core of the application is the "Live Demo" section, which uses an interactive tabbed component to showcase the four prototype examples, transforming them from static images into an engaging, hands-on experience. The "Impact" section uses dynamically rendered dial charts to visualize quantifiable outcomes. This structure was chosen to mirror the flow of a compelling pitch, making the value proposition clear and easily digestible for a CEO. -->
-    <!-- Visualization & Content Choices: The application translates the pitch deck's content into interactive web components. "Growth Chaos" points are presented as clear, icon-driven cards. The "Solution" section uses a simple HTML/CSS flow diagram. The "Live Demo" is the centerpiece: 1) The "AI Architect" is a simulated chat built with HTML/JS. 2) The "Strategy Mindmap" is recreated using pure HTML/CSS with nested divs and pseudo-elements. 3) The "Task Manager" and "Capability View" are built as interactive HTML structures. 4) The "Impact" section uses Chart.js for custom dial graphs. This approach was chosen to make the abstract concepts of the service tangible and interactive, proving the "Digital and Visual" promise of the offering. -->
+    <!-- Application Structure Plan: The SPA uses a single-page, vertical narrative structure to guide the user logically from problem to solution. A sticky navigation bar allows for both linear scrolling and direct access to key sections: "The Problem," "The Solution," "Live Demo," "Impact," "Audio Overview", "Why Us," and "Contact." The core of the application is the "Live Demo" section, which uses an interactive tabbed component to showcase the four prototype examples, transforming them from static images into an engaging, hands-on experience. The "Impact" section uses dynamically rendered dial charts to visualize quantifiable outcomes. This structure was chosen to mirror the flow of a compelling pitch, making the value proposition clear and easily digestible for a CEO. -->
+    <!-- Visualization & Content Choices: The application translates the pitch deck's content into interactive web components. "Growth Chaos" points are presented as clear, icon-driven cards. The "Solution" section uses a simple HTML/CSS flow diagram. The "Live Demo" is the centerpiece: 1) The "AI Architect" is a simulated chat built with HTML/JS. 2) The "Strategy Mindmap" is recreated using pure HTML/CSS with nested divs and pseudo-elements. 3) The "Task Manager" and "Capability View" are built as interactive HTML structures. 4) The "Impact" section uses Chart.js for custom dial graphs. A new "Audio Overview" section includes an HTML5 audio player. This approach was chosen to make the abstract concepts of the service tangible and interactive, proving the "Digital and Visual" promise of the offering. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -183,6 +183,7 @@
                         <a href="#solution" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">The Solution</a>
                         <a href="#demo" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Live Demo</a>
                         <a href="#impact" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">The Impact</a>
+                        <a href="#audio-overview" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Audio Overview</a>
                         <a href="#why-us" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Why Us</a>
                         <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-md text-sm font-medium shadow">Contact</a>
                     </div>
@@ -203,6 +204,7 @@
                 <a href="#solution" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">The Solution</a>
                 <a href="#demo" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Live Demo</a>
                 <a href="#impact" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">The Impact</a>
+                <a href="#audio-overview" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Audio Overview</a>
                 <a href="#why-us" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Why Us</a>
                 <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 block px-3 py-2 rounded-md text-base font-medium shadow">Contact</a>
             </div>
@@ -453,7 +455,21 @@
                 <div class="mt-12 p-6 bg-teal-50 rounded-lg border border-teal-200 shadow-sm text-center">
                     <h3 class="text-xl font-semibold text-teal-800 mb-4">Want a Deeper Dive into Growth OS?</h3>
                     <p class="text-gray-700 mb-4">Download our comprehensive whitepaper for a detailed look into the Growth OS framework, its methodology, and the quantified impact.</p>
-                    <a href="Growth%20OS%20-%20Your%20Digital%20Twin%20for%20Agile%20Growth%20-%20V2.pdf" target="_blank" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Download Whitepaper</a>
+                    <a href="Growth%20OS%20-%20Your%20Digital%20Twin%20for%20Agile%20Growth%20-%20VO.pdf" target="_blank" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Download Whitepaper</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="audio-overview" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Audio Overview</h2>
+                <p class="mt-2 section-title text-gray-900">A Deeper Dive into Growth OS</p>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Listen to a comprehensive overview of the Growth OS concept, its origins in organizational management science, and its value for scaling businesses.</p>
+                <div class="mt-8 max-w-xl mx-auto">
+                    <audio controls class="w-full">
+                        <source src="The_Deepdive_Growth_OS_Digital_Twin_for_Agile_Growth.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
             </div>
         </section>
@@ -481,7 +497,6 @@
                         </ul>
                     </div>
                     <div class="bg-gray-100 p-8 rounded-lg text-center">
-                        <!-- Removed the img tag and its surrounding div -->
                         <h3 class="text-xl font-bold">Nico Saunders</h3>
                         <p class="text-teal-600 font-semibold">Business Architect | Organisational Development & Transformation Specialist</p>
                     </div>
@@ -503,7 +518,7 @@
                 <div class="mt-12 p-6 bg-teal-50 rounded-lg border border-teal-200 shadow-sm">
                     <h3 class="text-xl font-semibold text-teal-800 mb-4">Want a Deeper Dive into Growth OS?</h3>
                     <p class="text-gray-700 mb-4">Download our comprehensive whitepaper for a detailed look into the Growth OS framework and its methodology.</p>
-                    <a href="Growth%20OS%20-%20Your%20Digital%20Twin%20for%20Agile%20Growth%20-%20V2.pdf" target="_blank" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Download Whitepaper</a>
+                    <a href="Growth%20OS%20-%20Your%20Digital%20Twin%20for%20Agile%20Growth%20-%20VO.pdf" target="_blank" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Download Whitepaper</a>
                 </div>
             </div>
         </section>
@@ -582,6 +597,9 @@
                         let messageHTML = `<p>${msg.text}</p>`;
                         if (msg.suggestions) {
                             messageHTML += '<div class="mt-2 pt-2 border-t border-gray-300"><p class="font-semibold text-sm">Here are some suggestions:</p><ul class="list-disc list-inside text-sm">';
+                            msg.suggestions.forEach(s => {
+                                messageHTML += `<li>${s}</li>`;
+                            });
                             msg.suggestions.forEach(s => {
                                 messageHTML += `<li>${s}</li>`;
                             });
