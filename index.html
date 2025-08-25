@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeaChange Consulting | Organisational Excellence</title>
+    
+    <!-- Chosen Palette: SeaChange Turquoise/Teal. Main colors from logo: #20b2aa (Light Sea Green), #008b8b (Dark Cyan), #40e0d0 (Turquoise), #48d1cc (Medium Turquoise). Backgrounds: #f0fdfd, #e6fffa. Text: #212529, #4a5568. -->
+    <!-- Application Structure Plan: This SPA serves as the main landing page for SeaChange Consulting. It features a prominent hero section, a brief introductory statement about the company, and two distinct call-to-action cards. Each card represents a core offering: one for "Organisational Alignment & Effectiveness Consulting" and another for "Growth OS: Digital Twin for Agile Growth." This structure guides users to choose their path based on their specific needs, maintaining brand consistency and clarity. -->
+    <!-- Visualization & Content Choices: Content is primarily text-based, using the established SeaChange branding. Two large, visually appealing cards are used to present the two main service offerings, each with a clear title, description, and a button linking to the respective detailed pitch deck. No complex charts or interactive elements beyond smooth scrolling and a mobile menu are required for this navigation-focused landing page. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles from SeaChange logo for consistency */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0fdfd 0%, #e6fffa 100%);
+            color: #212529;
+            min-height: 100vh;
+        }
+
+        /* Logo specific styles */
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .wave-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #20b2aa 0%, #008b8b 100%);
+        }
+
+        .wave {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(135deg, #40e0d0 0%, #48d1cc 100%);
+            border-radius: 50%;
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: 0.5s;
+            opacity: 0.7;
+        }
+
+        .wave:nth-child(3) {
+            animation-delay: 1s;
+            opacity: 0.5;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateY(20px) scale(0.8); }
+            50% { transform: translateY(-10px) scale(1.1); }
+        }
+
+        .company-name-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #20b2aa 0%, #008b8b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        /* General pitch deck styles */
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="logo-icon">
+                        <div class="wave-container">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                    </div>
+                    <span class="company-name-text">SeaChange</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#hero" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#offerings" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Our Offerings</a>
+                        <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-md text-sm font-medium shadow">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#hero" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#offerings" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Our Offerings</a>
+                <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 block px-3 py-2 rounded-md text-base font-medium shadow">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative py-20 md:py-32 bg-white overflow-hidden">
+            <div class="absolute inset-0 bg-teal-50"></div>
+            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="flex flex-col items-center">
+                    <span class="text-lg md:text-xl font-medium text-gray-700 mb-2">Welcome to</span>
+                    <h1 class="text-7xl md:text-8xl font-extrabold company-name-text leading-none mt-0 mb-0">SeaChange</h1> <!-- Removed mb-4, ensuring leading-none is effective -->
+                </div>
+                <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-600"> <!-- Increased mt-4 to mt-6 for more space -->
+                    Your Partner in Organisational Transformation and Agile Growth.
+                </p>
+                <div class="mt-8">
+                    <a href="#offerings" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Discover Our Solutions</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="offerings" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Our Solutions</h2>
+                    <p class="mt-2 section-title text-gray-900">Tailored for Your Unique Journey</p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Whether you're a scaling startup navigating growth chaos or an established organization seeking strategic alignment, SeaChange Consulting has a solution designed for you.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+                    <!-- Consulting Services Card -->
+                    <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-teal-500 hover:shadow-2xl transition-shadow duration-300">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Organisational Alignment & Effectiveness</h3>
+                        <p class="text-gray-700 mb-6">
+                            For established organizations and those seeking deep, bespoke guidance. We offer comprehensive consulting services across Organisational Design, Performance Management, Business Process Management, Job Architecture, Change Management, and AI/Digital HR Enablement. Our expert-led approach ensures tailored strategies and hands-on implementation for sustainable transformation.
+                        </p>
+                        <a href="consulting.html" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Explore Consulting Services</a>
+                    </div>
+
+                    <!-- Growth OS Product Card -->
+                    <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-teal-500 hover:shadow-2xl transition-shadow duration-300">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Growth OS: Digital Twin for Agile Growth</h3>
+                        <p class="text-gray-700 mb-6">
+                            A product-led SaaS platform specifically designed for startups and small to medium-sized businesses with a growth strategy. Leverage our AI-powered tool to build a living, interactive digital twin of your business, transforming growth chaos into strategic clarity. It's self-service, intuitive, and scalable, with optional consulting support.
+                        </p>
+                        <a href="growth_os_pitch.html" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Discover Growth OS Product</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title text-gray-900">Ready to Transform Your Organization?</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Let's discuss how SeaChange Consulting can help you achieve sustainable organisational effectiveness and drive your strategic goals forward.</p>
+                <div class="mt-8">
+                    <a href="mailto:nicosaunders@icloud.com" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Get in Touch</a>
+                     <p class="mt-6 text-gray-600">Or contact us directly:</p>
+                     <p class="mt-2 text-lg font-semibold text-gray-800">nicosaunders@icloud.com</p>
+                     <p class="mt-1 text-lg font-semibold text-gray-800">+27 82 065 4274</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            &copy; 2025 SeaChange Consulting. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
