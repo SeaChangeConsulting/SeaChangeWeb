@@ -1,357 +1,336 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeaChange Consulting | Organisational Alignment & Effectiveness</title>
-    
-    <!-- Chosen Palette: SeaChange Turquoise/Teal. Main colors from logo: #20b2aa (Light Sea Green), #008b8b (Dark Cyan), #40e0d0 (Turquoise), #48d1cc (Medium Turquoise). Backgrounds: #f0fdfd, #e6fffa. Text: #212529, #4a5568. -->
-    <!-- Application Structure Plan: This SPA is designed as a vertical narrative pitch for SeaChange Consulting's Organisational Effectiveness services. It includes a Hero section, a "The Challenge" section outlining common organizational problems, an "Our Approach" section, a detailed "Our Services" section, a "Why Partner With Us" section highlighting expertise, and a "Contact" section. The structure is linear, guiding the user through the value proposition, and is consistent with the existing Growth OS pitch deck for brand cohesion. -->
-    <!-- Visualization & Content Choices: Content is primarily text-based, supported by clear headings, bullet points, and subtle styling to enhance readability. Unicode characters are used for simple visual cues. The "Our Services" section uses a grid layout to present distinct service offerings clearly. No complex charts or interactive elements beyond smooth scrolling and a mobile menu are required for this consulting-focused pitch. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SeaChange Consulting | Organisational Alignment & Effectiveness</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Base styles from SeaChange logo for consistency */
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f0fdfd 0%, #e6fffa 100%);
-            color: #212529;
-            min-height: 100vh;
-        }
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        /* Logo specific styles */
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            position: relative;
-        }
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f0fdfd 0%, #e6fffa 100%);
+      color: #212529;
+      min-height: 100vh;
+    }
+    /* Logo animation used for the top-left and challenge icons */
+    .logo-icon { width: 40px; height: 40px; position: relative; }
+    .wave-container {
+      width: 100%; height: 100%; position: relative; overflow: hidden;
+      border-radius: 50%; background: linear-gradient(135deg, #20b2aa 0%, #008b8b 100%);
+    }
+    .wave {
+      position: absolute; width: 120%; height: 120%;
+      background: linear-gradient(135deg, #40e0d0 0%, #48d1cc 100%);
+      border-radius: 50%; animation: wave 3s ease-in-out infinite;
+    }
+    .wave:nth-child(2) { animation-delay: .5s; opacity: .7; }
+    .wave:nth-child(3) { animation-delay: 1s; opacity: .5; }
+    @keyframes wave { 0%,100%{transform:translateY(20px) scale(.8)} 50%{transform:translateY(-10px) scale(1.1)} }
 
-        .wave-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #20b2aa 0%, #008b8b 100%);
-        }
+    .company-name-text{
+      font-size:1.5rem;font-weight:700;
+      background:linear-gradient(135deg,#20b2aa 0%,#008b8b 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.5px;
+    }
 
-        .wave {
-            position: absolute;
-            width: 120%;
-            height: 120%;
-            background: linear-gradient(135deg, #40e0d0 0%, #48d1cc 100%);
-            border-radius: 50%;
-            animation: wave 3s ease-in-out infinite;
-        }
+    .section-title{font-size:2.25rem;font-weight:700;line-height:2.5rem;}
+    @media (max-width:768px){.section-title{font-size:1.875rem;line-height:2.25rem;}}
 
-        .wave:nth-child(2) {
-            animation-delay: 0.5s;
-            opacity: 0.7;
-        }
-
-        .wave:nth-child(3) {
-            animation-delay: 1s;
-            opacity: 0.5;
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: translateY(20px) scale(0.8); }
-            50% { transform: translateY(-10px) scale(1.1); }
-        }
-
-        .company-name-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #20b2aa 0%, #008b8b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-
-        /* General pitch deck styles */
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            line-height: 2.5rem;
-        }
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 1.875rem;
-                line-height: 2.25rem;
-            }
-        }
-    </style>
+    /* Hide visual alt text if the image path is wrong (accessibility preserved) */
+    .avatar-img { font-size: 0; }
+  </style>
 </head>
 <body class="antialiased">
-
-    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex-shrink-0 flex items-center gap-2">
-                    <div class="logo-icon">
-                        <div class="wave-container">
-                            <div class="wave"></div>
-                            <div class="wave"></div>
-                            <div class="wave"></div>
-                        </div>
-                    </div>
-                    <span class="company-name-text">SeaChange</span>
-                </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="index.html" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="#hero" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Overview</a>
-                        <a href="#challenge" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">The Challenge</a>
-                        <a href="#approach" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Our Approach</a>
-                        <a href="#services" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Our Services</a>
-                        <a href="#why-us" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Why Partner</a>
-                        <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-md text-sm font-medium shadow">Contact</a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="md:hidden hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <a href="#hero" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Overview</a>
-                <a href="#challenge" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">The Challenge</a>
-                <a href="#approach" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Our Approach</a>
-                <a href="#services" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Our Services</a>
-                <a href="#why-us" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Why Partner</a>
-                <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 block px-3 py-2 rounded-md text-base font-medium shadow">Contact</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="hero" class="relative py-20 md:py-32 bg-white overflow-hidden">
-            <div class="absolute inset-0 bg-teal-50"></div>
-            <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                    <span class="text-teal-600">Organisational Alignment & Effectiveness</span>
-                </h1>
-                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
-                    Strategic Design, Agile Performance, Sustainable Growth.
-                </p>
-                <div class="mt-8">
-                    <a href="#services" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Explore Our Services</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="challenge" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">The Challenge</h2>
-                    <p class="mt-2 section-title text-gray-900">Navigating Complexity for Sustainable Growth</p>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Modern organizations, especially those scaling rapidly, face a myriad of challenges that can hinder effectiveness and stifle growth. Without clear structures, aligned talent, and optimized processes, even the best strategies can falter.</p>
-                </div>
-                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-100 text-teal-600 mb-4">
-                            📈
-                        </div>
-                        <h3 class="mt-2 text-lg font-medium text-gray-900">Strategic Misalignment</h3>
-                        <p class="mt-1 text-base text-gray-500">Disconnect between vision and execution, leading to wasted effort.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-100 text-teal-600 mb-4">
-                            👥
-                        </div>
-                        <h3 class="mt-2 text-lg font-medium text-gray-900">Talent & Capability Gaps</h3>
-                        <p class="mt-1 text-base text-gray-500">Unclear roles, skill deficiencies, and underperforming teams.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-100 text-teal-600 mb-4">
-                            ⚙️
-                        </div>
-                        <h3 class="mt-2 text-lg font-medium text-gray-900">Operational Inefficiency</h3>
-                        <p class="mt-1 text-base text-gray-500">Fragmented processes, duplicated efforts, and slow adaptation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="approach" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="lg:text-center">
-                    <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Our Approach</h2>
-                    <p class="mt-2 section-title text-gray-900">Holistic, Practical, and AI-Informed Effectiveness</p>
-                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-500">At SeaChange Consulting, we believe true Organisational Effectiveness comes from a holistic alignment between Business Goals, People, Processes, and Technology. Our approach is deeply rooted in established business architecture and organizational design principles, enhanced by modern AI capabilities for faster, smarter design. We focus on understanding and intentionally managing the intricate interrelatedness of your organization to unlock its full potential. </p>
-                </div>
-                <div class="mt-12 flex flex-col items-center space-y-8">
-                    <!-- Strategic Alignment - Top Block -->
-                    <div class="w-full max-w-md text-center p-6 border border-teal-200 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Strategic Alignment</h3>
-                        <p class="text-gray-500">Connecting every operational element to your overarching vision.</p>
-                    </div>
-                    <!-- People, Process, Technology - Row Below -->
-                    <div class="grid gap-8 md:grid-cols-3 w-full max-w-4xl">
-                        <div class="text-center p-6 border border-teal-200 rounded-lg shadow-sm">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">People-Centric Design</h3>
-                            <p class="text-gray-500">Optimizing roles, skills, and talent for peak performance and engagement.</p>
-                        </div>
-                        <div class="text-center p-6 border border-teal-200 rounded-lg shadow-sm">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Process Optimization</h3>
-                            <p class="text-gray-500">Streamlining workflows for efficiency, agility, and compliance.</p>
-                        </div>
-                        <div class="text-center p-6 border border-teal-200 rounded-lg shadow-sm">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Technology Alignment</h3>
-                            <p class="text-gray-500">Aligning technology aligns with business processes and optimal employee experience.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Our Core Offerings</h2>
-                    <p class="mt-2 section-title text-gray-900">Comprehensive Organisational Effectiveness Services</p>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Leveraging over 15 years of expertise, SeaChange Consulting provides a full spectrum of services to design, optimize, and transform your organization for sustainable success.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Organisational Design & Operating Models</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Target Operating Model (TOM) Design & Implementation</li>
-                            <li>Functional, Capability & Value Stream Modeling</li>
-                            <li>Organisational Structure Design & Alignment</li>
-                            <li>Job Architecture & Role Definition</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Talent & Performance Management</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>AI-Enabled Job & Competency Architecture</li>
-                            <li>Integrated Talent Management Processes (Workforce Planning, Performance, Succession)</li>
-                            <li>Continuous Performance Management Design</li>
-                            <li>Workday Talent Implementation (Career Hub, Gigs, Skills Cloud)</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Business Process & Service Optimisation</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>End-to-End Business Process Design & Re-engineering</li>
-                            <li>HR Service Model & Process Standardisation</li>
-                            <li>ITIL-Certified Service Management Offerings (via partners)</li>
-                            <li>Organisational Digital Twin (DTO) Proof-of-Concept & Meta-model Development</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Change Management & Adoption</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Prosci ADKAR Model Implementation & Training</li>
-                            <li>Executive Sponsorship & Leadership Coalition Building</li>
-                            <li>Impact & Change Readiness Assessments</li>
-                            <li>Structured Rollout Roadmaps & Adoption Strategies</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">AI & Digital HR Enablement</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>AI-Enabled Job Profiling Systems</li>
-                            <li>Digital Twin Meta-model Development for Organisational Components</li>
-                            <li>HR Systems Integration & Optimisation (Oracle, SAP, Workday)</li>
-                            <li>AI-Enhanced Prompt Systems for Role Design</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Strategic Alignment & Governance</h3>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                            <li>Business Architecture & Capability Mapping (TOGAF)</li>
-                            <li>Strategy Management System Design</li>
-                            <li>Compliance & Risk Management Frameworks</li>
-                            <li>Data-Driven Performance Measurement (KPIs, Balanced Scorecards)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="why-us" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Why Partner With Us?</h2>
-                        <p class="mt-2 section-title text-gray-900">Your Trusted Guide to Organisational Excellence</p>
-                        <p class="mt-4 text-lg text-gray-500">SeaChange Consulting brings over 15 years of deep, practical expertise in Organisational Effectiveness, combining strategic vision with hands-on implementation. We understand the complexities of both large enterprises and agile startups, ensuring tailored, sustainable solutions.</p>
-                        <ul class="mt-8 space-y-4">
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0"><span class="text-teal-500">✅</span></div>
-                                <p class="ml-3 text-base text-gray-700"><span class="font-semibold">Holistic Transformation:</span> Expertise across People, Process, and Technology for integrated solutions.</p>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="flex-shrink-0"><span class="text-teal-500">✅</span></div>
-                                <p class="ml-3 text-base text-gray-700"><span class="font-semibold">AI-Informed & Practical:</span> Leveraging AI for efficiency, always grounded in human judgment and actionable outcomes.</p>
-                            </li>
-                             <li class="flex items-start">
-                                <div class="flex-shrink-0"><span class="text-teal-500">✅</span></div>
-                                <p class="ml-3 text-base text-gray-700"><span class="font-semibold">Proven Track Record:</span> TOGAF & Prosci certified, with a history of delivering complex projects across diverse industries.</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-100 p-8 rounded-lg text-center">
-                        <img src="https://placehold.co/150x150/E2E8F0/4A5568?text=NS" alt="Nico Saunders" class="w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-white object-cover">
-                        <h3 class="text-xl font-bold">Nico Saunders</h3>
-                        <p class="text-teal-600 font-semibold">Business Architect | Organisational Development & Transformation Specialist</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="section-title text-gray-900">Ready to Transform Your Organization?</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">Let's discuss how SeaChange Consulting can help you achieve sustainable organisational effectiveness and drive your strategic goals forward.</p>
-                <div class="mt-8">
-                    <a href="mailto:nicosaunders@icloud.com" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Get in Touch</a>
-                     <p class="mt-6 text-gray-600">Or contact us directly:</p>
-                     <p class="mt-2 text-lg font-semibold text-gray-800">nicosaunders@icloud.com</p>
-                     <p class="mt-1 text-lg font-semibold text-gray-800">+27 82 065 4274</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-white border-t">
-        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
-            &copy; 2025 SeaChange Consulting. All Rights Reserved.
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            document.querySelectorAll('#mobile-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
+  <!-- Auto-clean any stray text pasted outside the HTML -->
+  <script>
+    (function () {
+      function removeStrayTextNodes(container) {
+        var nodes = Array.from(container.childNodes);
+        nodes.forEach(function (n) {
+          if (n.nodeType === 3 && n.textContent.replace(/\s+/g, '').length > 0) {
+            container.removeChild(n);
+          }
         });
-    </script>
+      }
+      removeStrayTextNodes(document.body);
+      document.addEventListener('DOMContentLoaded', function(){ removeStrayTextNodes(document.body); });
+    })();
+  </script>
 
+  <!-- Header -->
+  <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex-shrink-0 flex items-center gap-2">
+          <div class="logo-icon">
+            <div class="wave-container">
+              <div class="wave"></div><div class="wave"></div><div class="wave"></div>
+            </div>
+          </div>
+          <span class="company-name-text">SeaChange</span>
+        </a>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="index.html" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="#hero" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Overview</a>
+            <a href="#challenge" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">The Challenge</a>
+            <a href="#approach" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Our Approach</a>
+            <a href="#services" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Our Services</a>
+            <a href="#why-us" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Why Partner</a>
+            <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-md text-sm font-medium shadow">Contact</a>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#hero" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Overview</a>
+        <a href="#challenge" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">The Challenge</a>
+        <a href="#approach" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Our Approach</a>
+        <a href="#services" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Our Services</a>
+        <a href="#why-us" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Why Partner</a>
+        <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 block px-3 py-2 rounded-md text-base font-medium shadow">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="relative pt-20 md:pt-32 pb-10 md:pb-16 bg-white overflow-hidden">
+      <div class="absolute inset-0 bg-teal-50"></div>
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+          <span class="text-teal-600">Organisational Alignment & Effectiveness</span>
+        </h1>
+        <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
+          Strategic Design, Agile Performance, Sustainable Growth.
+        </p>
+        <div class="mt-8">
+          <a href="#services" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Explore Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHALLENGE -->
+    <section id="challenge" class="pt-8 md:pt-12 pb-16 md:pb-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">The Challenge</h2>
+          <p class="mt-2 section-title text-gray-900">Navigating Complexity for Sustainable Growth</p>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+            Modern organizations, especially those scaling rapidly, face a myriad of challenges that can hinder effectiveness and stifle growth. Without clear structures, aligned talent, and optimized processes, even the best strategies can falter.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="logo-icon mb-4">
+              <div class="wave-container"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+            </div>
+            <h3 class="mt-2 text-lg font-medium text-gray-900">Strategic Misalignment</h3>
+            <p class="mt-1 text-base text-gray-500">Disconnect between vision and execution, leading to wasted effort.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="logo-icon mb-4">
+              <div class="wave-container"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+            </div>
+            <h3 class="mt-2 text-lg font-medium text-gray-900">Talent & Capability Gaps</h3>
+            <p class="mt-1 text-base text-gray-500">Unclear roles, skill deficiencies, and underperforming teams.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="logo-icon mb-4">
+              <div class="wave-container"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+            </div>
+            <h3 class="mt-2 text-lg font-medium text-gray-900">Operational Inefficiency</h3>
+            <p class="mt-1 text-base text-gray-500">Fragmented processes, duplicated efforts, and slow adaptation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section id="approach" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Our Approach</h2>
+          <p class="mt-2 section-title text-gray-900">Holistic, Practical, and AI-Informed Effectiveness</p>
+          <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-500">
+            At SeaChange Consulting, we believe true Organisational Effectiveness comes from a holistic alignment between Business Goals, People, Processes, and Technology. Our approach is deeply rooted in established business architecture and organizational design principles, enhanced by modern AI capabilities for faster, smarter design. We focus on understanding and intentionally managing the intricate interrelatedness of your organization to unlock its full potential.
+          </p>
+        </div>
+
+        <div class="mt-12 flex flex-col items-center space-y-8">
+          <div class="w-full max-w-md text-center p-6 border border-teal-200 rounded-lg shadow-sm">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Strategic Alignment</h3>
+            <p class="text-gray-500">Connecting every operational element to your overarching vision.</p>
+          </div>
+          <div class="grid gap-8 md:grid-cols-3 w-full max-w-4xl">
+            <div class="text-center p-6 border border-teal-200 rounded-lg shadow-sm">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">People-Centric Design</h3>
+              <p class="text-gray-500">Optimizing roles, skills, and talent for peak performance and engagement.</p>
+            </div>
+            <div class="text-center p-6 border border-teal-200 rounded-lg shadow-sm">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Process Optimization</h3>
+              <p class="text-gray-500">Streamlining workflows for efficiency, agility, and compliance.</p>
+            </div>
+            <div class="text-center p-6 border border-teal-200 rounded-lg shadow-sm">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Technology Alignment</h3>
+              <p class="text-gray-500">Aligning technology aligns with business processes and optimal employee experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-16 md:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Our Core Offerings</h2>
+          <p class="mt-2 section-title text-gray-900">Comprehensive Organisational Effectiveness Services</p>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+            Leveraging over 15 years of expertise, SeaChange Consulting provides a full spectrum of services to design, optimize, and transform your organization for sustainable success.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Organisational Design & Operating Models</h3>
+            <ul class="list-disc list-outside pl-6 text-gray-700 space-y-2 text-[13px] leading-relaxed">
+              <li>Target Operating Model (TOM) Design & Implementation</li>
+              <li>Functional, Capability & Value Stream Modeling</li>
+              <li>Organisational Structure Design & Alignment</li>
+              <li>Job Architecture & Role Definition</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Talent & Performance Management</h3>
+            <ul class="list-disc list-outside pl-6 text-gray-700 space-y-2 text-[13px] leading-relaxed">
+              <li>AI-Enabled Job & Competency Architecture</li>
+              <li>Integrated Talent Management Processes (Workforce Planning, Performance, Succession)</li>
+              <li>Continuous Performance Management Design</li>
+              <li>Workday Talent Implementation (Career Hub, Gigs, Skills Cloud)</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Business Process & Service Optimisation</h3>
+            <ul class="list-disc list-outside pl-6 text-gray-700 space-y-2 text-[13px] leading-relaxed">
+              <li>End-to-End Business Process Design & Re-engineering</li>
+              <li>HR Service Model & Process Standardisation</li>
+              <li>ITIL-Certified Service Management Offerings (via partners)</li>
+              <li>Organisational Digital Twin (DTO) Proof-of-Concept & Meta-model Development</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Change Management & Adoption</h3>
+            <ul class="list-disc list-outside pl-6 text-gray-700 space-y-2 text-[13px] leading-relaxed">
+              <li>Prosci ADKAR Model Implementation & Training</li>
+              <li>Executive Sponsorship & Leadership Coalition Building</li>
+              <li>Impact & Change Readiness Assessments</li>
+              <li>Structured Rollout Roadmaps & Adoption Strategies</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">AI & Digital HR Enablement</h3>
+            <ul class="list-disc list-outside pl-6 text-gray-700 space-y-2 text-[13px] leading-relaxed">
+              <li>AI-Enabled Job Profiling Systems</li>
+              <li>Digital Twin Meta-model Development for Organisational Components</li>
+              <li>HR Systems Integration & Optimisation (Oracle, SAP, Workday)</li>
+              <li>AI-Enhanced Prompt Systems for Role Design</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-500">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Strategic Alignment & Governance</h3>
+            <ul class="list-disc list-outside pl-6 text-gray-700 space-y-2 text-[13px] leading-relaxed">
+              <li>Business Architecture & Capability Mapping (TOGAF)</li>
+              <li>Strategy Management System Design</li>
+              <li>Compliance & Risk Management Frameworks</li>
+              <li>Data-Driven Performance Measurement (KPIs, Balanced Scorecards)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="why-us" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Why Partner With Us?</h2>
+            <p class="mt-2 section-title text-gray-900">Your Trusted Guide to Organisational Excellence</p>
+            <p class="mt-4 text-lg text-gray-500">
+              SeaChange Consulting brings over 15 years of deep, practical expertise in Organisational Effectiveness, combining strategic vision with hands-on implementation. We understand the complexities of both large enterprises and agile startups, ensuring tailored, sustainable solutions.
+            </p>
+            <ul class="mt-8 space-y-4">
+              <li class="flex items-start"><div class="flex-shrink-0"><span class="text-teal-500">✅</span></div><p class="ml-3 text-base text-gray-700"><span class="font-semibold">Holistic Transformation:</span> Expertise across People, Process, and Technology for integrated solutions.</p></li>
+              <li class="flex items-start"><div class="flex-shrink-0"><span class="text-teal-500">✅</span></div><p class="ml-3 text-base text-gray-700"><span class="font-semibold">AI-Informed & Practical:</span> Leveraging AI for efficiency, always grounded in human judgment and actionable outcomes.</p></li>
+              <li class="flex items-start"><div class="flex-shrink-0"><span class="text-teal-500">✅</span></div><p class="ml-3 text-base text-gray-700"><span class="font-semibold">Proven Track Record:</span> TOGAF & Prosci certified, with a history of delivering complex projects across diverse industries.</p></li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-100 p-8 rounded-lg text-center">
+            <!-- Avatar image -->
+            <img src="./nicospic.jpg" alt="Nico Saunders" loading="lazy"
+                 class="avatar-img w-32 h-32 rounded-full mx-auto mb-4 ring-4 ring-white object-cover object-center">
+            <h3 class="text-xl font-bold">Nico Saunders</h3>
+            <p class="text-teal-600 font-semibold">Business Architect | Organisational Development & Transformation Specialist</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 md:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="section-title text-gray-900">Ready to Transform Your Organization?</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+          Let's discuss how SeaChange Consulting can help you achieve sustainable organisational effectiveness and drive your strategic goals forward.
+        </p>
+        <div class="mt-8">
+          <a href="mailto:nicosaunders@icloud.com" class="inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">Get in Touch</a>
+          <p class="mt-6 text-gray-600">Or contact us directly:</p>
+          <p class="mt-2 text-lg font-semibold text-gray-800">nicosaunders@icloud.com</p>
+          <p class="mt-1 text-lg font-semibold text-gray-800">+27 82 065 4274</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t">
+    <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+      &copy; 2025 SeaChange Consulting. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+      document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    });
+  </script>
 </body>
 </html>
-
-
