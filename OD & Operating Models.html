@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Network Operating Model | SeaChange Consulting</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0fdfd 0%, #e6fffa 100%); color: #212529; min-height: 100vh; }
+    /* Animated logo waves (kept consistent with consulting.html) */
+    .logo-icon { width: 40px; height: 40px; position: relative; }
+    .wave-container { width: 100%; height: 100%; position: relative; overflow: hidden; border-radius: 50%; background: linear-gradient(135deg, #20b2aa 0%, #008b8b 100%); }
+    .wave { position: absolute; width: 120%; height: 120%; background: linear-gradient(135deg, #40e0d0 0%, #48d1cc 100%); border-radius: 50%; animation: wave 3s ease-in-out infinite; }
+    .wave:nth-child(2) { animation-delay: .5s; opacity: .7; }
+    .wave:nth-child(3) { animation-delay: 1s; opacity: .5; }
+    @keyframes wave { 0%,100%{transform:translateY(20px) scale(.8)} 50%{transform:translateY(-10px) scale(1.1)} }
+
+    .company-name-text{ font-size:1.5rem; font-weight:700; background:linear-gradient(135deg,#20b2aa 0%,#008b8b 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; letter-spacing:-.5px; }
+    .section-title{ font-size:2.25rem; font-weight:700; line-height:2.5rem; }
+    @media (max-width:768px){ .section-title{ font-size:1.875rem; line-height:2.25rem; } }
+
+    /* Cards */
+    .card { transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,.08); }
+
+    /* Keep media fallback text invisible if a file fails to load */
+    .media-fallback{ font-size:0; }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Clean up any stray pasted text nodes -->
+  <script>
+    (function () { function cleanup(b){ Array.from(b.childNodes).forEach(function(n){ if(n.nodeType===3 && n.textContent.replace(/\s+/g,'').length>0){ b.removeChild(n); } }); } cleanup(document.body); document.addEventListener('DOMContentLoaded', function(){ cleanup(document.body); }); })();
+  </script>
+
+  <!-- Header: only Home (as requested) -->
+  <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex-shrink-0 flex items-center gap-2">
+          <div class="logo-icon">
+            <div class="wave-container"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+          </div>
+          <span class="company-name-text">SeaChange</span>
+        </a>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="index.html" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500" aria-label="Open menu">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / INTRO (reduced top spacing ~50% and two-column layout so videos are visible on first paint) -->
+    <section class="relative pt-12 md:pt-16 pb-8 md:pb-10 bg-white overflow-hidden">
+      <div class="absolute inset-0 bg-teal-50"></div>
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <h1 class="section-title md:text-5xl text-center md:text-left text-gray-900">
+          <span class="text-teal-600">The Network Operating Model</span>
+        </h1>
+
+        <!-- Two-column layout: left = intro copy (wider), right = stacked videos -->
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <!-- Intro copy -->
+          <div class="lg:col-span-7">
+            <p class="text-lg text-gray-700 leading-relaxed">
+              The modern business environment is defined by unprecedented complexity and a rapid pace of change, posing a defining challenge for organizations on how to profitably deliver services to customers. Customer expectations are rapidly changing, radically shifting profits and forcing executives to navigate an increasingly complex landscape of technologies and regulatory pressures. In this high-stakes environment, merely embarking on transformation journeys is not enough; research shows a competitive "power curve" where the top quintile of performers capture more than 90 percent of the economic profit.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mt-4">
+              To move up this curve and achieve the step-function improvement in productivity required, leaders must commit to reinventing their core business by putting in place a next-generation operating model that can sustain new levels of speed, agility, efficiency, and precision.
+            </p>
+            <h3 class="mt-8 text-xl font-bold text-gray-900">The Network Advantage</h3>
+            <p class="text-lg text-gray-700 leading-relaxed mt-2">
+              Organizations that adopt networked or agile structures report improvements in speed, innovation, and employee engagement. By aligning teams around value streams, a Network Operating model (NOM) eliminates internal barriers and bolsters cross-functional collaboration, ensuring that the best-suited experts address each problem regardless of their formal department.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mt-4">
+              Ultimately, the success of this transformation hinges on leadership commitment, as senior executives have an outsize influence on driving organizational alignment, championing new models of working, and anchoring the transformation through bold and effective decisions.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mt-4">
+              The following resources delve into the strategies, capabilities, and foundational elements necessary for leaders to build out their next-generation operating model and maximize digital value.
+            </p>
+          </div>
+
+          <!-- Videos stacked (visible at first paint) -->
+          <div class="lg:col-span-5 space-y-8">
+            <article class="card bg-white p-5 rounded-lg shadow-md border-t-4 border-teal-500">
+              <h4 class="text-lg font-bold text-gray-900">Beyond Hierarchy: Redesigning Your DNA with the Network Operating Model (NOM)</h4>
+              <p class="mt-2 text-gray-700">An overview of the NOM, what it is and what it takes to make it work in under 20 minutes.</p>
+              <div class="mt-3 rounded-md overflow-hidden bg-gray-100">
+                <video controls preload="metadata" class="w-full aspect-video media-fallback">
+                  <source src="Beyond_Hierarchy__Redesigning_Your_DNA_with_the_Network_Operating_Model.mp4" type="video/mp4">
+                  <a href="Beyond_Hierarchy__Redesigning_Your_DNA_with_the_Network_Operating_Model.mp4">Download / Open Video</a>
+                </video>
+              </div>
+            </article>
+
+            <article class="card bg-white p-5 rounded-lg shadow-md border-t-4 border-teal-500">
+              <h4 class="text-lg font-bold text-gray-900">Network Operating Model: An Introduction</h4>
+              <p class="mt-2 text-gray-700">A short introduction (less than 10 min) on Network Operating Models.</p>
+              <div class="mt-3 rounded-md overflow-hidden bg-gray-100">
+                <video controls preload="metadata" class="w-full aspect-video media-fallback">
+                  <source src="Network_Operating_Model_An_Introduction.mp4" type="video/mp4">
+                  <a href="Network_Operating_Model_An_Introduction.mp4">Download / Open Video</a>
+                </video>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY SOURCES (unchanged) -->
+    <section class="py-12 md:py-16 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <h3 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Key Sources</h3>
+        <ul class="mt-4 space-y-3 list-disc list-outside pl-5">
+          <li>
+            <a class="text-teal-700 hover:text-teal-900 underline" href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/introducing-the-next-generation-operating-model" target="_blank" rel="noopener">Introducing the next-generation operating model – McKinsey</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t">
+    <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-gray-500">&copy; 2025 SeaChange Consulting. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('mobile-menu-button');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+      document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => menu.classList.add('hidden'));
+      });
+    });
+  </script>
+</body>
+</html>
