@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-R">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SeaChange Consulting | Organisational Excellence</title>
     
@@ -104,7 +104,7 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#hero" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <!-- Removed "Home" link -->
                         <a href="#offerings" class="text-gray-600 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-medium">Our Offerings</a>
                         <a href="https://seachangeconsulting.github.io/SeaChangeWeb/SeaChange%20Onepager.html" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Overview</a>
                         <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 rounded-md text-sm font-medium shadow">Contact</a>
@@ -122,7 +122,7 @@
         </nav>
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#hero" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <!-- Removed "Home" link -->
                 <a href="#offerings" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Our Offerings</a>
                 <a href="https://seachangeconsulting.github.io/SeaChangeWeb/SeaChange%20Onepager.html" class="text-gray-600 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Overview</a>
                 <a href="#contact" class="bg-teal-600 text-white hover:bg-teal-700 block px-3 py-2 rounded-md text-base font-medium shadow">Contact</a>
@@ -131,12 +131,24 @@
     </header>
 
     <main>
-        <section id="hero" class="relative py-20 md:py-32 bg-white overflow-hidden">
+        <!-- 
+          CHANGE: Reduced vertical padding here.
+          Was 'py-20 md:py-32'
+          Now 'py-12 md:py-20'
+        -->
+        <section id="hero" class="relative py-12 md:py-20 bg-white overflow-hidden">
             <div class="absolute inset-0 bg-teal-50"></div>
             <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <div class="flex flex-col items-center">
                     <span class="text-lg md:text-xl font-medium text-gray-700 mb-2">Welcome to</span>
-                    <h1 class="text-7xl md:text-8xl font-extrabold company-name-text mt-0 mb-0 leading-tight">SeaChange</h1> <!-- Adjusted leading-tight -->
+                    <!-- 
+                      FIX v2: Changed 'leading-normal' to 'leading-snug md:leading-snug'
+                      The 'text-7xl' and 'md:text-8xl' classes set 'line-height: 1', 
+                      which was overriding the previous fix on larger screens.
+                      This new class explicitly sets a taller line-height for 
+                      both the base and medium-plus breakpoints, giving the 'g' room.
+                    -->
+                    <h1 class="text-7xl md:text-8xl font-extrabold company-name-text mt-0 mb-0 leading-snug md:leading-snug">SeaChange</h1>
                 </div>
                 <p class="mt-16 max-w-2xl mx-auto text-lg md:text-xl text-gray-600"> <!-- Increased mt-6 to mt-8 for more space -->
                     Your Partner in Organisational Transformation and Agile Growth.
@@ -147,7 +159,12 @@
             </div>
         </section>
 
-        <section id="offerings" class="py-16 md:py-24">
+        <!-- 
+          CHANGE: Reduced vertical padding here.
+          Was 'py-16 md:py-24'
+          Now 'py-12 md:py-16'
+        -->
+        <section id="offerings" class="py-12 md:py-16">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h2 class="text-base font-semibold text-teal-600 tracking-wide uppercase">Our Solutions</h2>
@@ -206,16 +223,13 @@
             });
             
             document.querySelectorAll('#mobile-menu a').forEach(link => {
-                link.addEventListener('click', () => {
+                link.addEventListener('click', ()S => {
                     mobileMenu.classList.add('hidden');
                 });
             });
         });
-    </script>
+    </SCrip>
 
 </body>
 </html>
-
-
-
 
